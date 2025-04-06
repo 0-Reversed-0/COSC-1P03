@@ -3,7 +3,7 @@ package construction;
 class IntNode
 {
     int item;
-    IntNode next; // reference to the next item121
+    IntNode next; // reference to the next item
 
     IntNode(int item, IntNode next)
     {

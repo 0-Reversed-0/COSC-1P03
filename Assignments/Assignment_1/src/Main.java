@@ -7,7 +7,7 @@
 
 import BasicIO.*; // needed for the ASCIIDataFile Object
 
-public class Main
+public class Main   
 {
 
     ASCIIDataFile copier = new ASCIIDataFile("wordsearch.dat"); // I used the ASCIIDataFile object from the Brock.jar package since I learned how to use it from COSC 1P02 which made reading the .dat file a lot easier
