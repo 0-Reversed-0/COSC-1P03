@@ -33,7 +33,7 @@ public class Snowflake {
         yertle.penDown();
 
 
-        for ( int i=1 ; i<=6 ; i++ ) {
+        for ( int i=1 ; i<=6 ; i++ ) { // six sides to the six snowflakes
             koch(3,100);
             yertle.right(2*Math.PI/3);
         }
