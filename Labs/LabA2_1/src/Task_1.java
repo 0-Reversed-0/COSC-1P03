@@ -1,6 +1,6 @@
-public class Main
+public class Task_1
 {
-    public Main()
+    public Task_1()
     {
         task1();
     }
@@ -90,6 +90,6 @@ public class Main
 
     public static void main(String[] args)
     {
-        new Main();
+        new Task_1();
     }
 }
