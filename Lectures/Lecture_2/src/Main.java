@@ -53,7 +53,7 @@ public class Main
 
         for(int num : arr)
         {
-           sum += num;
+           sum += num; // sum = sum + num;
         }
 
         System.out.println("The sum is: " + sum);
