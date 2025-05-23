@@ -5,40 +5,29 @@ package L5;
  * Supports trivial analysis
  */
 
-public class Pool
+public interface Pool // an interface is defining a type
 {
-    void add(Measurement M)
-    {
+    /**
+     * Interfaces are an ADTs.
+     * An interface is basically lets us make a class without needing to add any of the code
+     * We use this to implement code later even though the class does not yet exist
+     * Kind of like placeholder for the class before we implement it.
+     * Interfaces have to have comments on the method to actually show what they do.
+     * So we can use the non-existent methods in our code then implement it to make them actually work.
+     */
 
-    }
+     public void add(Measurement M);
 
-    public Measurement draw()
-    {
-        return null;
-    }
+     public Measurement draw();
 
-    public Measurement min()
-    {
-        return null;
-    }
+     public Measurement min();
 
-    public Measurement max()
-    {
-        return null;
-    }
+     public Measurement max();
 
-    public Measurement[] above (Measurement reference)
-    {
-        return null;
-    }
+     public Measurement[] above (Measurement reference);
 
-    public Measurement[] below (Measurement reference)
-    {
-        return null;
-    }
+     public Measurement[] below (Measurement reference);
 
-    public String toString()
-    {
-        return super.toString();
-    }
+     public String toString();
+
 }

@@ -1,5 +1,9 @@
 import Measurement.Measurement; //This is the whole reason we separate things into packages so we can import them into things like testers.
 
+/**
+ * Lecture 5 did not go into ADT's strongly yet.
+ */
+
 public class Main
 {
 
