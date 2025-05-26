@@ -28,9 +28,9 @@ public class Main
      * @return true if A conquers B; false if B conquers A
      */
 
-    private boolean isConquered(int dA, int sA, int dB, int sB)
+    private boolean checker(int dA, int sA, int dB, int sB)
     {
-        if(dA > sA)
+        if(dA < dB)
         {
 
         }
