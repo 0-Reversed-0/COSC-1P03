@@ -18,7 +18,7 @@ public class Task_1
     }
 
     /**
-     * Show what is required i.e. first value, last value, average
+     * Show what is required i.e., first value, last value, average
      */
 
     void display(int[] array)

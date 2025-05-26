@@ -3,8 +3,8 @@ import java.util.*;
 public class Task_2
 {
 
-    byte[][] grades = new byte[100][2]; //I just wanted to use this for fun.
-    byte size = 0;
+    byte[][] grades = new byte[100][2]; //I just wanted to use this for fun. Normally do not use bytes use integers instead
+    byte size = 0; // also used it for fun
     Scanner input = new Scanner(System.in);
 
     /**
@@ -20,7 +20,7 @@ public class Task_2
     }
 
     /**
-     * The average method collect all the values and sums it up and then divides it by the already determined size
+     * The average method collects all the values and sums it up and then divides it by the already determined size
      */
 
     double avg(byte[][] grades)
