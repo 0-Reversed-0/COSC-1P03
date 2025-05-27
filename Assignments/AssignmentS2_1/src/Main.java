@@ -2,7 +2,6 @@
  * Author: Arhum Ahmed Khan
  * Course: COSC 1P03 (Spring Term)
  * Title: Assignment 1: Vilfredo Vanguard
- * Student ID: 8074114
  */
 
 ///  Side Notes: Yes, I comment every line. Also, I attached another text file just for testing (feel free to use it!!!).
