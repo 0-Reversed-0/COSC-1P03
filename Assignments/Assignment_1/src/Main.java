@@ -1,8 +1,7 @@
 /**
  * Assignment 1: Word Search
  * Course: COSC 1P03
- * Author: Arhum Ahmed Khan
- * Student ID: 8074114
+ * Author:Reversed_0
  */
 
 import BasicIO.*; // needed for the ASCIIDataFile Object
