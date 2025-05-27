@@ -1,13 +1,12 @@
-package Part_2;
-
-import BasicIO.*;
-
 /**
- * Author: Arhum Ahmed Khan
- * Student ID: 8074114
+ * Author: Reversed_0
  * Course: COSC 1P03
  * Title: Maze Solver - Assignment 4
  */
+
+package Part_2;
+
+import BasicIO.*;
 
 // First time I worked on an assignment and I didn't go over 200 lines
 
