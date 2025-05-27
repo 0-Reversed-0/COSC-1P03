@@ -1,5 +1,5 @@
 /**
- * Author: Arhum Ahmed Khan
+ * Author: Reversed_0
  * Course: COSC 1P03 (Spring Term)
  * Title: Assignment 1: Vilfredo Vanguard
  */
