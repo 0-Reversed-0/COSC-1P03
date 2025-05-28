@@ -60,18 +60,18 @@ public class Main
     }
 
     /**
-     * Essentially a checker that I can use to compare 2 rows in one small loop
+     * Essentially a checker that I can use to compare 2 rows. I use this to make it simpler to check for valid candidates by using one small nested loop
      *
-     * @param rowA the row that will be checked for being unconquered
-     * @param rowB the row that will be compared to
-     * @return true if B conquers A; false if A conquers B
+     * @param rowA the row that is being challenged on whether it is unconquered
+     * @param rowB the row that will try to conquer rowA
+     * @return a boolean called "conquered" which will return false if A is the conqueror or will return true if B is the conqueror
      */
 
     private boolean conqueror(int[] rowA, int[] rowB) // THE GREAT CONQUEROR'S TEST!!!!
     {
-        boolean conquered = false; // essentially our else statement to avoid multiple return statements, This will challenge rowA's reign
+        boolean conquered = false; // this boolean will be changed (or not) depending on the conditions below.
 
-        if ((rowA[0] > rowB[0]) & (rowA[1] > rowB[1])) // if both distance AND stops of B are greater than A's then... (We need both to be true so we use the "&" operator),
+        if ((rowA[0] > rowB[0]) & (rowA[1] > rowB[1])) // if both distance AND stops of A are greater than B's then... (We need both to be true so we use the "&" operator),
         {
             conquered = true; // A, will be completely conquered in every way. THROW THE KING OFF HIS THRONE!
         } else if ((rowA[0] == rowB[0]) && (rowA[1] > rowB[1])) // if the distance of B and A are the same AND if A's stops are greater than B's then... (If the first statement isn't true, then do not continue just as a safeguard),
@@ -82,7 +82,7 @@ public class Main
             conquered = true; // A, will be conquered also not as harsh...
         }
 
-        return conquered; // should return false if rowA is the unconquered king that he says he is (if row falls all 3 checks done by the if statements)
+        return conquered; // should return false if rowA is the unconquered king that he says he is (if rowA fails all 3 checks done by the if statements) otherwise return true.
     }
 
     /**
@@ -93,7 +93,7 @@ public class Main
 
     private int[][] readData()
     {
-        int col = input.readInt(); // reading the rows and columns makes it easier to read the textfile without any weird erros
+        int col = input.readInt(); // reading the rows and columns makes it easier to read the textfile without any weird errors
         int row = input.readInt();
 
         int[][] populatedData = new int[row][col]; // initializing the array after reading the rows and cols for obvious reasons
@@ -106,7 +106,7 @@ public class Main
             }
         }
 
-        return populatedData; // now the data is populated with candidates!!!!! YAY!!!!
+        return populatedData;
     }
 
     /**
