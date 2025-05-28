@@ -34,6 +34,7 @@ public class Main
         head = new Node(7, head);        // Then the new head starts the list with 7 then points to the old head
         head = new Node(3, head);        // Think about it like pushing a bunch of blocks(Nodes in our case)
         head = new Node(1, head);        // and then adding a new block in the front of the blocks
+        head = new Node(13, head);       // Insertion in the front is literally as easy as setting the value you want as head.
 
         Node ptr = head; // To traverse this horrible list, we can use a temporary pointer Node that points to head
 
