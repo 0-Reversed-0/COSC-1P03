@@ -1,8 +1,7 @@
 /**
  * Assignment 2: Codebook
  * Course: COSC 1P03
- * Author: Arhum Ahmed Khan
- * Student ID: 8074114
+ * Author: Reversed_0
  */
 
 public class Main

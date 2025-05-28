@@ -4,10 +4,9 @@ import Media.*;
 import static java.lang.Math.*;
 
 /**
- * Author: Arhum Ahmed Khan
- * Student ID: 8074114
+ * Author: Reversed_0
  * Course: COSC 1P03
- * Title: SNOWWWW!!!! - Assignment 5
+ * Title: SNOWWWW!!!! - Assignment 4
  */
 
 ///  I did as the instructions told me to do and made a snowflake by messing with the already given code from Week 8!

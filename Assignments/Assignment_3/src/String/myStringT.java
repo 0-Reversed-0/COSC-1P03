@@ -1,13 +1,12 @@
-package String;
-
-import java.util.Iterator;
-
 /**
- * Author: Arhum Ahmed Khan.
- * Student ID: 8074114.
+ * Author: Reversed_0
  * Course: COSC 1P03.
  * Title: DIY String Object.
  */
+
+package String;
+
+import java.util.Iterator;
 
 public final class myStringT implements StringT, Iterable<Character> //implements the String.StringT Interface into String.myStringT
 {
