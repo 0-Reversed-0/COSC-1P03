@@ -1,3 +1,9 @@
+/**
+ * Node was copied from the last lecture
+ */
+
+package List;
+
 public class Node
 {
     int item;
