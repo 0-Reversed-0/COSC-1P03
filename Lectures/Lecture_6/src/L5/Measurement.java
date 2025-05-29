@@ -42,7 +42,7 @@ public class Measurement // Our class will not have updaters because we want it 
 
     public String toString()
     {
-        return "["+name+", "+reading+", "+label+"}";
+        return "["+name+", "+reading+", "+label+"]";
     }
 
 }

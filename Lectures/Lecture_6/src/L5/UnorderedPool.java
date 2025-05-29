@@ -19,13 +19,13 @@ public class UnorderedPool implements Pool // this is how we implement an interf
             count = 0;
         }
         else {
-            throw new StopTrollingException(); // we do not want negative array capacities obviously
+            throw new StopTrollingException("There has to be more than 1 Measurements in the Pool"); // we do not want negative array capacities obviously
         }
     }
 
     public UnorderedPool()
     {
-        this(100);
+        this(100); // in case our user does not want to have a specific amount yet
     }
 
     public void add(Measurement M)
@@ -35,34 +35,54 @@ public class UnorderedPool implements Pool // this is how we implement an interf
             arr[count++] = M; //if a user decides to add a measurement,
             // then it will add their measurement and go to the next value in the array
         }
-
-        /**
-         * You can also do this
-         */
     }
 
     public Measurement draw()
     {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException("Work in progress"); // this exception makes it so that we do not need to immediately implement the method in question until we want to.
     }
 
     public Measurement min()
     {
-        return null;
+        double min = Double.MAX_VALUE; // it is literally impossible for a bird to be that big
+        Measurement mini = new Measurement("Impossible Bird", min); // just a placeholder to set as the minimum value for later but just incase we have a bird that is 1.79769313486231570e+308d cm we won't set it as null
+
+        for (int i = 0; i < arr.length; i++)
+        {
+            if(min > arr[i].getReading()) // if the reading of the current Measurement's reading is less than the min value then...
+            {
+                min = arr[i].getReading(); // then set the new minimum double as the current Measurement's reading
+                mini = arr[i]; // and set new minimum Measurement as the current Minimum
+            }
+        }
+
+        return mini;
     }
 
     public Measurement max()
     {
-        return null;
+        double maximum = -1; // the bird wouldn't even exist man. Poor bird...
+        Measurement max = null; // here we would set it as null because I would not call the void a bird in my opinion
+
+        for (int i = 0; i < arr.length; i++)
+        {
+            if(maximum < arr[i].getReading()) // same logic as the minimum value just reversed
+            {
+                maximum = arr[i].getReading();
+                max = arr[i];
+            }
+        }
+
+        return max;
     }
 
     public Measurement[] above(Measurement reference)
     {
-        throw new UnsupportedOperationException(); // basically tells you that this is a work in progress
+        throw new UnsupportedOperationException(); // We can even use this exception on return type method
     }
 
     public Measurement[] below(Measurement reference)
     {
-        return new Measurement[0];
+        throw new UnsupportedOperationException();
     }
 }
