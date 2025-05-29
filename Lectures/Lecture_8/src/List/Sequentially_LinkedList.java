@@ -24,7 +24,13 @@ public class Sequentially_LinkedList
 
     public void decapitate()
     {
-        head = head.next; // makes the front of the list the 2nd value
+        if (head == null)
+        {
+
+        } else
+        {
+            head = head.next; // makes the front of the list the 2nd value
+        }
     }
 
     /**
@@ -52,14 +58,14 @@ public class Sequentially_LinkedList
                 head = null; // well everything so no chopping tails again :(
             } else
             {
-                q.next = null; // the node before our tail (List.Node Q) will point to null and essentially remove the tail from the list entirely
+                q.next = null; // the node before our tail (Node Q) will point to null and essentially remove the tail from the list entirely
             }
 
         }
     }
 
     /**
-     * This is how we insert a List.Node essentially anywhere in the list
+     * This is how we insert a node essentially anywhere in the list
      *
      * @param value the value of the item in the node that we want to add into the list
      */
