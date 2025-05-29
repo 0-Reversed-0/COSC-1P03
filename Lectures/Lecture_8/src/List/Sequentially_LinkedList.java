@@ -26,7 +26,7 @@ public class Sequentially_LinkedList
     {
         if (head == null)
         {
-
+            //no public execution :(
         } else
         {
             head = head.next; // makes the front of the list the 2nd value
