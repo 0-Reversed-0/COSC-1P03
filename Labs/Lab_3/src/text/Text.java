@@ -61,7 +61,7 @@ public interface Text
      * @return
      */
 
-    int common(Text t);
+    Text common(Text t);
 
     /**
      * Makes our char[] data into a string
