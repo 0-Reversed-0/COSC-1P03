@@ -109,13 +109,19 @@ public class TextArray implements Text
     {
         int result = 1; // we return result as either 1, 0, or -1 depending on the alphabetical order of the last letters of each texts
 
+        /*
+         * This was my interpretation of the compareTo method
+         * It only compares start to last matching letters rather than it first looking for a starting point for the first matching letter
+         * I didn't do that because it is needlessly complicated and impractical (just use .search)
+         */
+
         for (int i = 0; i < data.length; i++) // this loop should check when the arrays letters stop matching
         {
             if (data[i] == t.get(i))
             {
-                result = 0; // if the text consistently match letters then it result should stay 0
+                result = 0; // if the letters match then keep it 0
 
-                if (t.get(i) == t.get(t.length() - 1)) // if we are the end of the second text then we would just leave it at 0 since it would the last character is the same
+                if (t.get(i) == t.get(t.length() - 1)) // if we are the end of the second text then we would just leave it at 0 since everything matched up, and we do not want to do a comparison of last letters
                 {
                     break;
                 }
@@ -132,7 +138,7 @@ public class TextArray implements Text
                     result = -1;
                 }
 
-                break; // no need to continue to loop at this point
+                break; // no need to continue to loop at this point because the rest of the letters do not matter if on of them do not match up
             }
         }
 
