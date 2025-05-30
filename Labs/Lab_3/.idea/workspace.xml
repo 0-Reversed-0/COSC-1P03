@@ -7,9 +7,7 @@
     <list default="true" id="9e71fc28-64ca-4f27-9af9-55f74d753574" name="Changes" comment="code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/text/Text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/Text.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/text/TextArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/TextArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lectures/Lecture_8/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lectures/Lecture_8/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,10 +70,27 @@
       <option name="project" value="LOCAL" />
       <updated>1748479868917</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Implemented all Text methods.">
+      <option name="closed" value="true" />
+      <created>1748635516556</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748635516556</updated>
+    </task>
+    <task id="LOCAL-00003" summary="code">
+      <option name="closed" value="true" />
+      <created>1748635530360</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1748635530360</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implemented all Text methods." />
     <MESSAGE value="code" />
     <option name="LAST_COMMIT_MESSAGE" value="code" />
   </component>

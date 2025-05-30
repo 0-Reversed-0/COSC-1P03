@@ -107,42 +107,40 @@ public class TextArray implements Text
     @Override
     public int compareTo(Text t)
     {
-        int comp = -1;
+        int result = 1; // we return result as either 1, 0, or -1 depending on the alphabetical order of the last letters of each texts
 
-        int index = 0;
-
-        for (int i = 0; i < data.length; i++)
+        for (int i = 0; i < data.length; i++) // this loop should check when the arrays letters stop matching
         {
             if (data[i] == t.get(i))
             {
-                comp = 0; // if the strings are the same then it would stay 0 because both strings are the same
+                result = 0; // if the text consistently match letters then it result should stay 0
 
-                if(t.get(i) == t.get(t.length()-1))
+                if (t.get(i) == t.get(t.length() - 1)) // if we are the end of the second text then we would just leave it at 0 since it would the last character is the same
                 {
-                    index = i;
                     break;
                 }
 
-            } else
+            } else // if at any point the arrays characters  do not match up then we would start a comparison on which one is higher on the ascii table
             {
-                index = i;
-                break;
+                int index = i; // we use this to record where specifically the letters stop matching
+
+                if (data[index] > t.get(index)) // if our text has the last letter higher on the list then we would return 1
+                {
+                    result = 1;
+                } else if (data[index] < t.get(index)) // if the other text has its last letter be higher we would want to return -1
+                {
+                    result = -1;
+                }
+
+                break; // no need to continue to loop at this point
             }
         }
 
-        if (data[index] > t.get(index))
-        {
-            comp = 1;
-        } else if (data[index] < t.get(index))
-        {
-            comp = -1;
-        }
-
-        return comp;
+        return result;
     }
 
     @Override
-    public boolean equals(Text t) // It is better to have methods independent of each-other which why I don't just use compare to here
+    public boolean equals(Text t) // It is better to have methods independent of each-other which why I don't just use compareTo here
     {
         boolean checker = false;
 

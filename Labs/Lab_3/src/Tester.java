@@ -9,7 +9,7 @@ public class Tester
     public Tester()
     {
         char[] data = {'L', 'u', 'c', 'a'};
-        char[] dataOpp = {'L', 'u','c', 'a'};
+        char[] dataOpp = {};
 
         txt = new TextArray(data);
         text = new TextArray(dataOpp);
