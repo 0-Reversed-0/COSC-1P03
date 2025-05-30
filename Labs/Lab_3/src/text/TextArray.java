@@ -1,3 +1,9 @@
+/**
+ * Author: Reversed_0
+ * Course: COSC 1P03
+ * Title: ADT Lab
+ */
+
 package text;
 
 public class TextArray implements Text
@@ -37,22 +43,22 @@ public class TextArray implements Text
     {
         TextArray newText;
 
-        if (start < data.length & end < data.length) // same thing with our .get method; we want it to be in bounds of our char array
-        {
+        if (start < data.length & end < data.length) // same thing with our .get method; we want it to be in bounds of our char array.
+        { // We use the | operator because if any of the 2 indexes are invalid we would want the if statement to fail
             char[] copy = new char[end - start];
 
             for (int i = start; i < end; i++)
             {
-                copy[i] = data[i];
+                copy[i-start] = data[i]; // we do not want the start of the copy area to be out of bounds so just subtract the ending index so it essentially starts at 0
             }
 
             newText = new TextArray(copy);
-        } else
+        } else // if one or both indexes are invalid then...
         {
-            newText = new TextArray(data);
+            newText = new TextArray(data); // just give them the full text array
         }
 
-        return newText; // rest is just copying an array to select our specific part of our array
+        return newText;
     }
 
     @Override
@@ -176,7 +182,7 @@ public class TextArray implements Text
         int start = newText.search(t); // easiest way to find the starting point is to use our search method (im not coding this shit again)
         int end = t.length(); // ending would always the query's length
 
-        Text newer = newText.selection(start, end); // our handy dandy selection method comes into play here
+        Text newer = newText.selection(start, end+1); // our handy dandy selection method comes into play here
 
         return newer;
     }

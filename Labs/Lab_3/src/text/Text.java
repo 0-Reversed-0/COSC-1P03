@@ -1,3 +1,9 @@
+/**
+ * Author: Reversed_0
+ * Course: COSC 1P03
+ * Title: ADT Lab
+ */
+
 package text;
 
 public interface Text
@@ -56,9 +62,9 @@ public interface Text
     boolean equals(Text t);
 
     /**
-     *
-     * @param t
-     * @return
+     * Finds out how long the common selection and makes a new text for the common selection (I have no clue what this does)
+     * @param t second string
+     * @return a new instance of Text
      */
 
     Text common(Text t);
