@@ -12,8 +12,8 @@ public class Main
      * Arrays are an object
      * Arrays allocate the ram to a set size that the user sets
      * YOU CANNOT CHANGE ARRAY SIZES
-     * They can only hold one type of array
-     * Arrays use 0 based indexing i.e. starting value starts from 0,  then 1, then 2, then 3....
+     * They can only hold one type of data
+     * Arrays use 0 based indexing i.e. starting value starts from 0, then 1, then 2, then 3....
      */
 
     void Arrays()
@@ -26,7 +26,7 @@ public class Main
 
         int[] weirdArr = {1, 2, 5, 7 , 7 , 98}; // here you declare the values directly into the array
 
-        /// indexing is done by just doing this: arrayName[position of the value]
+        /// indexing is done by just doing this: arrayName[position of the value]. Since arrays are 0 based, then our first position would have the index of 0 instead of 1
 
         System.out.println("The second value of weirdArr is: " + weirdArr[3]); // should print 7!!!!!!!!!
 
@@ -51,10 +51,10 @@ public class Main
 
         int sum = 0;
 
-        for(int num : arr)
+        for(int num : arr) // num is our indexing variable
         {
            sum += num; // sum = sum + num;
-        }
+        } // There is not many uses for, for each loops unless you want to get some style point in.
 
         System.out.println("The sum is: " + sum);
 
