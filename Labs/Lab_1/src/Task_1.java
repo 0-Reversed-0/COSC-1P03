@@ -1,3 +1,9 @@
+/**
+ * Author: Reversed_0
+ * Course: COSC 1P03
+ * Title: Array Lab
+ */
+
 public class Task_1
 {
     public Task_1()
