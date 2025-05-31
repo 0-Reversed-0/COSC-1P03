@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7dbadecb-75f0-41ab-bd8e-1e8f56da9af6" name="Changes" comment="Finished Lab 1">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="7dbadecb-75f0-41ab-bd8e-1e8f56da9af6" name="Changes" comment="code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabA2_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab_1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab_2/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab_2/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab_2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab_2/LabA2_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab_2/Lab_2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab_3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab_3/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748233295060</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="code">
+      <option name="closed" value="true" />
+      <created>1748654320313</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1748654320313</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -193,15 +195,21 @@
     <MESSAGE value="Added Lab 1 Attempt 2." />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;Lectures/Lecture_6/src/L5/Pool.java&#10;#&#9;Lectures/Lecture_6/src/L5/UnorderedPool.java&#10;#&#9;Lectures/Lecture_6/src/Main.java" />
     <MESSAGE value="Finished Lab 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Lab 1" />
+    <MESSAGE value="code" />
+    <option name="LAST_COMMIT_MESSAGE" value="code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Task_1.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="1" />
+          <line>66</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Task_1.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

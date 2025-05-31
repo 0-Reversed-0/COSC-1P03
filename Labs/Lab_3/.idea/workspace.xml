@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9e71fc28-64ca-4f27-9af9-55f74d753574" name="Changes" comment="Finished Lab 3">
       <change beforePath="$PROJECT_DIR$/../Lab_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab_1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab_2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +58,15 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Tester" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Tester" />
+      <module name="Lab_3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -125,5 +133,36 @@
     <MESSAGE value="finished TextArray.java" />
     <MESSAGE value="Finished Lab 3" />
     <option name="LAST_COMMIT_MESSAGE" value="Finished Lab 3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/text/TextArray.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/text/TextArray.java</url>
+          <line>129</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/text/TextArray.java</url>
+          <line>138</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/text/TextArray.java</url>
+          <line>141</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/text/TextArray.java</url>
+          <line>150</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
