@@ -8,7 +8,7 @@ public class Tester
     public Tester()
     {
         addTest();
-        delete();
+        deleteTest();
 
         /// Now we just display the damn thing
 
@@ -53,7 +53,7 @@ public class Tester
      * Now this will test our deletion methods
      */
 
-    void delete()
+    void deleteTest()
     {
         ///Let's say I HATE the numbers 0 and 21 from our linked list no issue we can remove those treacherous numbers from the linked list
 
