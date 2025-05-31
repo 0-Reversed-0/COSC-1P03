@@ -17,7 +17,7 @@ public interface Text
 
     /**
      * @param idx - index of the character in the Text Object
-     * @return - returns a character
+     * @return - a character from specified index
      */
 
     char get(int idx);
