@@ -103,7 +103,7 @@ public class Main
                 step++; // 1
             }
             else {
-                for ( int j = N; j > 0; j=j/2 ) // this is the REVERSE of an exponential so your going down by half by half by half
+                for ( int j = N; j > 0; j=j/2 ) // this is the REVERSE of an exponential so your going down by half each loop
                     step++; // 2
             }
         }
