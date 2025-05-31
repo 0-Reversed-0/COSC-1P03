@@ -18,6 +18,7 @@ public class Main
      * YOU CANNOT CHANGE ARRAY SIZES
      * They can only hold one type of data
      * Arrays use 0 based indexing i.e. starting value starts from 0, then 1, then 2, then 3....
+     * Arrays can hold any type of data(even objects)
      */
 
     void Arrays()
@@ -28,7 +29,7 @@ public class Main
 
         /// you can also write an array like this
 
-        int[] weirdArr = {1, 2, 5, 7 , 7 , 98}; // here you declare the values directly into the array
+        int[] weirdArr = {1, 2, 5, 7, 7, 8, 98}; // here you declare the values directly into the array
 
         /// indexing is done by just doing this: arrayName[position of the value]. Since arrays are 0 based, then our first position would have the index of 0 instead of 1
 
@@ -45,7 +46,7 @@ public class Main
     {
         int[] arr = new int[101];
 
-        for (int i = 0; i < arr.length ; i++) // we have array.length with just is how many values can the array holds
+        for (int i = 0; i < arr.length; i++) // we have array.length with just is how many values can the array holds
         {
             arr[i] = i; // arr[0] = 0 etc. goes from 0-100
             System.out.println(arr[i]);
@@ -55,9 +56,9 @@ public class Main
 
         int sum = 0;
 
-        for(int num : arr) // num is our indexing variable
+        for (int num : arr) // num is our indexing variable
         {
-           sum += num; // sum = sum + num;
+            sum += num; // sum = sum + num;
         } // There is not many uses for, for each loops unless you want to get some style point in.
 
         System.out.println("The sum is: " + sum);
