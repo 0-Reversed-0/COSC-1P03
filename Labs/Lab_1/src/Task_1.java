@@ -23,7 +23,7 @@ public class Task_1
 
     void display(int[] array)
     {
-        /// Array
+        /// Displays the Array as a whole
 
         for (int i = 0; i < array.length; i++)
         {
