@@ -1,3 +1,7 @@
+/**
+ * This Lecture goes HIGHLY in depth for Linked Lists
+ */
+
 import List.*;
 
 public class Tester
