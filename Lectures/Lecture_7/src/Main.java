@@ -5,11 +5,11 @@
 public class Main
 {
 
-    /*
+    /**
      * Storing data is challenging with arrays since we have a static amount of space
      * We want a data structure (course name mentioned!!!) that is resizable
      * We also want to have something that is easy to insert values in the middle
-     * Our solution would be a Dynamic Structure
+     * Our solution would be a Dynamic Structure (LINKED LISTS BUT THAT'S FOR LECTURE 8)
      */
 
     public Main()
@@ -36,14 +36,15 @@ public class Main
         head = new Node(1, head);        // and then adding a new block in the front of the blocks
         head = new Node(13, head);       // Insertion in the front is literally as easy as setting the value you want as head.
 
-        Node ptr = head; // To traverse this horrible list, we can use a temporary pointer Node that points to head
+        Node ptr = head; // To traverse this horrible list, we can use a temporary pointer Node that points to head since if we use head itself then it would pretty much just unlink the entire list
 
         while (ptr != null) //then we make it so that if the POINTER POINTS TO NULL, THEN WE STOP THE TRAVERSING!!!!
         {
-            System.out.print(ptr.item + " -> "); //then we take the item out of the pointer so we can display it
-            ptr = ptr.next; //then move on the next node
+            System.out.print(ptr.item + " -> "); //then we take the item out of the pointer node so we can display it
+            ptr = ptr.next; //then we set the pointer node to the node it was linked to (our next node) which moves the pointer to the next node
         }
 
+        System.out.print("null"); // just to show what the end of the list and for style points
     }
 
     private void theProblem()
@@ -55,14 +56,15 @@ public class Main
             arr[i] = i;
         }
 
-        // If I wanted to add let's say the 9th element,
-        // then I would have to make a whole new array just add a new element
-        // If I wanted to add something in the middle at arr[3] would have me end up copying the array AND shifting the values along
+        /*
+         * If I wanted to add let's say the 9th element,
+         * then I would have to make a whole new array just add a new element
+         * If I wanted to add something in the middle at arr[3] would have me end up copying the array AND shifting the values along
+         */
     }
 
     public static void main(String[] args)
     {
         new Main();
     }
-
 }

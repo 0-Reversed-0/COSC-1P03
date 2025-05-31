@@ -3,7 +3,7 @@ public class Node
 
     /**
      * To start making a Dynamically Linked Structure AKA a Linked Lists, we need to make a Node class
-     * The node class is a wrapper class that is any object that modify the usage of another (basically an esay way to access our data)
+     * The node class is a wrapper class that is any object that modify the usage of another (basically an easy way to access our data)
      */
 
     int item; // This is what the Linked List's node shall hold
