@@ -3,6 +3,7 @@ package L5;
 /**
  * This class represents a single numerical measurement that may include annotations
  * Each iteration will have a name, reading, and label
+ * This was just imported from Lecture 5
  */
 
 public class Measurement // Our class will not have updaters because we want it to be immutable

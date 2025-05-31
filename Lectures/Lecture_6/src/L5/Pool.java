@@ -7,8 +7,8 @@ package L5;
 
 public interface Pool // an interface is defining a type
 {
-    /**
-     * Interfaces are an ADTs.
+    /*
+     * Interfaces is what is used to define an ADT.
      * An interface is basically lets us make a class without needing to add any of the code
      * We use this to implement code later even though the class does not yet exist
      * Kind of like placeholder for the class before we implement it.
@@ -16,18 +16,18 @@ public interface Pool // an interface is defining a type
      * So we can use the non-existent methods in our code then implement it to make them actually work.
      */
 
-     public void add(Measurement M);
+     void add(Measurement M);
 
-     public Measurement draw();
+     Measurement draw();
 
-     public Measurement min();
+     Measurement min();
 
-     public Measurement max();
+     Measurement max();
 
-     public Measurement[] above (Measurement reference);
+     Measurement[] above(Measurement reference);
 
-     public Measurement[] below (Measurement reference);
+     Measurement[] below(Measurement reference);
 
-     public String toString();
+     String toString();
 
 }

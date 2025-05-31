@@ -1,3 +1,9 @@
+/**
+ * This Lecture goes into lengthy detail on what Interfaces are,
+ * How Interfaces are implemented,
+ * and Exception Handling.
+ */
+
 import L5.*;
 
 public class Main

@@ -3,6 +3,7 @@ package L5;
 /**
  * This class stores readings in an arbitrary order
  * It implements the Pool Interface.
+ * This class in specific is what we would call an ADT because it is defined by an ADT
  */
 
 public class UnorderedPool implements Pool // this is how we implement an interface via using the keyword implements: public class Name implements interfaceName
@@ -53,6 +54,8 @@ public class UnorderedPool implements Pool // this is how we implement an interf
             {
                 min = arr[i].getReading(); // then set the new minimum double as the current Measurement's reading
                 mini = arr[i]; // and set new minimum Measurement as the current Minimum
+            }else {
+                throw new StopTrollingException();
             }
         }
 
