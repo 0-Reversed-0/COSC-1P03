@@ -1,3 +1,7 @@
+/**
+ * This Lecture went in depth on Arrays and tiny bit of for each loops for some reason
+ */
+
 public class Main
 {
 
