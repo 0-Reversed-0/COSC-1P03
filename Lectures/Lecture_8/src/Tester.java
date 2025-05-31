@@ -40,7 +40,7 @@ public class Tester
         List.sortedInsertion(10); // This would be a normal case but...
 
         /*
-         * Let's say I wanted to add in the front of back with this method
+         * Let's say I wanted to add in the front and back with this method it could technically do that for us
          * This would totally work out too and would essentially be the best version of the "add" method (that is if we wanted our values sorted)
          */
 
