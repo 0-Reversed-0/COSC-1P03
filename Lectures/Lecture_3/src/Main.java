@@ -1,3 +1,7 @@
+/**
+ * This lecture goes further into how things like 2D arrays and ragged arrays work.
+ */
+
 public class Main
 {
 
@@ -19,7 +23,6 @@ public class Main
 
         int [][] array = generate(2,3);
         showMatrix(array);
-
     }
 
     /**
@@ -45,6 +48,7 @@ public class Main
 
     /**
      * Example of showing an array using for each loops
+     * Also an example of traversal
      */
 
     void showMatrix(int[][] arr)
@@ -60,13 +64,13 @@ public class Main
     }
 
     /**
-     * Ragged arrays are arrays that do not have a static size of each row. One row could have 5 elements the next could have 0
+     * Ragged arrays are arrays that do not have a static size of each row. One row could have 5 elements the next could have 3
+     * These arrays will still have a static amount of rows (20 rows of unspecified length)
      * they are declare as: int[][] arrayName = new int[row][] // COLUMN SHOULD NOT HAVE ANYTHING
      */
 
     void raggedArrays()
     {
-
         // Generating ragged array
 
         int[][] arr = new int[20][]; //the column is not included
@@ -87,13 +91,12 @@ public class Main
 
         for (int i = 0; i < arr.length; i++)
         {
-            for (int j = 0; j < arr[i].length; j++)
+            for (int j = 0; j < arr[i].length; j++) //we would want the specific length of each row since it's not a matrix
             {
                 System.out.print(arr[i][j]);
             }
             System.out.println();
         }
-
     }
 
     public static void main(String[] args)
