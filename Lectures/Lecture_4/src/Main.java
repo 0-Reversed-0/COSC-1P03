@@ -1,3 +1,7 @@
+/**
+ * This class just went over sorting algorithms and which ones are more efficient was not the most eventful
+ */
+
 public class Main
 {
 
@@ -17,6 +21,11 @@ public class Main
         sortingAlgorithm(arr);
     }
 
+    /**
+     * A storing algorithm that finds the largest value
+     * @param arr an int array
+     */
+
     void sortingAlgorithm(int[] arr)
     {
         int large = arr[0]; // the largest value is the first value
@@ -32,13 +41,25 @@ public class Main
         System.out.println("\nLargest: " + large);
     }
 
+    /**
+     * Displays our array
+     * @param arr an int array
+     */
+
     void display(int[] arr)
     {
+
         for (int i = 0; i < arr.length; i++)
         {
             System.out.print(arr[i] + " ");
         }
     }
+
+    /**
+     * Fills an array which random values
+     * @param qty an int on how long we want the array to be
+     * @return a filled out array
+     */
 
     private int[] rando(int qty)
     {
