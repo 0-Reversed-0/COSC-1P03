@@ -29,7 +29,7 @@ public class Task_1
 
     void display(int[] array)
     {
-        /// Displays the Array as a whole
+        /// Displays the entire array
 
         for (int i = 0; i < array.length; i++)
         {
