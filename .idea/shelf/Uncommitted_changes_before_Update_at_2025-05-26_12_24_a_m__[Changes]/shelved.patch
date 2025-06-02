@@ -1,0 +1,170 @@
+Index: Labs/Lab_1/.gitignore
+===================================================================
+diff --git a/Labs/Lab_1/.gitignore b/Labs/Lab_1/.gitignore
+deleted file mode 100644
+--- a/Labs/Lab_1/.gitignore	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
++++ /dev/null	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
+@@ -1,29 +0,0 @@
+-### IntelliJ IDEA ###
+-out/
+-!**/src/main/**/out/
+-!**/src/test/**/out/
+-
+-### Eclipse ###
+-.apt_generated
+-.classpath
+-.factorypath
+-.project
+-.settings
+-.springBeans
+-.sts4-cache
+-bin/
+-!**/src/main/**/bin/
+-!**/src/test/**/bin/
+-
+-### NetBeans ###
+-/nbproject/private/
+-/nbbuild/
+-/dist/
+-/nbdist/
+-/.nb-gradle/
+-
+-### VS Code ###
+-.vscode/
+-
+-### Mac OS ###
+-.DS_Store
+\ No newline at end of file
+Index: Labs/Lab_1/.idea/.gitignore
+===================================================================
+diff --git a/Labs/Lab_1/.idea/.gitignore b/Labs/Lab_1/.idea/.gitignore
+deleted file mode 100644
+--- a/Labs/Lab_1/.idea/.gitignore	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
++++ /dev/null	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: Labs/Lab_1/.idea/vcs.xml
+===================================================================
+diff --git a/Labs/Lab_1/.idea/vcs.xml b/Labs/Lab_1/.idea/vcs.xml
+deleted file mode 100644
+--- a/Labs/Lab_1/.idea/vcs.xml	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
++++ /dev/null	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: Labs/Lab_2/.idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Labs/Lab_2/.idea/.gitignore b/Labs/Lab_2/.idea/.gitignore
+deleted file mode 100644
+--- a/Labs/Lab_2/.idea/.gitignore	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
++++ /dev/null	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: Labs/Lab_2/.idea/misc.xml
+===================================================================
+diff --git a/Labs/Lab_2/.idea/misc.xml b/Labs/Lab_2/.idea/misc.xml
+deleted file mode 100644
+--- a/Labs/Lab_2/.idea/misc.xml	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
++++ /dev/null	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: Labs/Lab_2/.gitignore
+===================================================================
+diff --git a/Labs/Lab_2/.gitignore b/Labs/Lab_2/.gitignore
+deleted file mode 100644
+--- a/Labs/Lab_2/.gitignore	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
++++ /dev/null	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
+@@ -1,29 +0,0 @@
+-### IntelliJ IDEA ###
+-out/
+-!**/src/main/**/out/
+-!**/src/test/**/out/
+-
+-### Eclipse ###
+-.apt_generated
+-.classpath
+-.factorypath
+-.project
+-.settings
+-.springBeans
+-.sts4-cache
+-bin/
+-!**/src/main/**/bin/
+-!**/src/test/**/bin/
+-
+-### NetBeans ###
+-/nbproject/private/
+-/nbbuild/
+-/dist/
+-/nbdist/
+-/.nb-gradle/
+-
+-### VS Code ###
+-.vscode/
+-
+-### Mac OS ###
+-.DS_Store
+\ No newline at end of file
+Index: Labs/Lab_1/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Labs/Lab_1/.idea/misc.xml b/Labs/Lab_1/.idea/misc.xml
+deleted file mode 100644
+--- a/Labs/Lab_1/.idea/misc.xml	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
++++ /dev/null	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: Labs/Lab_2/.idea/vcs.xml
+===================================================================
+diff --git a/Labs/Lab_2/.idea/vcs.xml b/Labs/Lab_2/.idea/vcs.xml
+deleted file mode 100644
+--- a/Labs/Lab_2/.idea/vcs.xml	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
++++ /dev/null	(revision 21b7d0d15d59982b7022029933c0191f8de2a38b)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+new file mode 100644
+--- /dev/null	(date 1748233305286)
++++ b/README.md	(date 1748233305286)
+@@ -0,0 +1,4 @@
++COSC 1P03 - Introduction to data structures at Brock University.
++This repository contains all labs, assignments, and lecture code that was covered in this entire course.
++S2 is a label given to the Spring term version of this course!
++Hopefully anyone who comes by this finds it helpful.
