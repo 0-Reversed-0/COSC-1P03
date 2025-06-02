@@ -1,7 +1,7 @@
 /**
  * Author: Reversed_0
  * Course: COSC 1P03 (Spring Term)
- * Title: Assignment 1: Vilfredo Vanguard
+ * Title: Assignment 1: Vilfredo Vanguard!
  */
 
 ///  Side Notes: Yes, I comment every line. Also, I attached another text file just for testing (feel free to use it!!!).

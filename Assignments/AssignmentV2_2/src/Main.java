@@ -1,7 +1,7 @@
 /**
- * Author: Arhum Ahmed Khan
+ * Author: Reversed_0
  * Course: COSC 1P03
- * Title: Rando Strikes Again!
+ * Title: Rando Strikes Again!!!
  */
 
 
