@@ -1,3 +1,7 @@
+/**
+ * This lecture goes into Stacks
+ */
+
 import pez.*;
 
 public class Tester
