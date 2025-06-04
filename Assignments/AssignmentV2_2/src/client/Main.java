@@ -1,3 +1,5 @@
+package client;
+
 /**
  * Author: Reversed_0
  * Course: COSC 1P03
