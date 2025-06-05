@@ -8,46 +8,50 @@ public class Tester
 
     public Tester()
     {
+        // Tests text's method
+
+        testAppend(20);
         testPrepend();
         testToString();
-        versus();
         testCount();
+
+        // Big O complexity comparison
+
+        versus(1000);
     }
 
-    void versus()
+    void versus(int n)
     {
-        testAppend(10000);
-        testNormalConcat(10000);
+        long start = System.currentTimeMillis();
+        testAppend(n);
+        long stop = System.currentTimeMillis();
+
+        System.out.println(stop - start + "ms");
+
+        long start2 = System.currentTimeMillis();
+        testNormalConcat(n);
+        long stop2 = System.currentTimeMillis();
+
+        System.out.println(stop2 - start2 + "ms");
     }
 
     void testAppend(int upperbound)
     {
-        long start = System.currentTimeMillis();
-
         for (int i = 2; i <= upperbound; i++)
         {
             String s = Integer.toString(i);
             t.append(s + "\n");
         }
-
-        long stop = System.currentTimeMillis();
-
-        System.out.println("The time it took to do this operation was: " + (stop - start) + "ms");
     }
 
     void testNormalConcat(int upperbound)
     {
-        long start = System.currentTimeMillis();
-
         String s = "";
 
         for (int i = 0; i < upperbound; i++)
         {
             s = s + i;
         }
-
-        long stop = System.currentTimeMillis();
-        System.out.println("The time it took to do this operation was: " + (stop - start) + "ms");
     }
 
     void testPrepend()
@@ -63,7 +67,7 @@ public class Tester
 
     void testToString()
     {
-        //System.out.println(t.toString());
+        System.out.println(t.toString());
     }
 
     public static void main(String[] args)
