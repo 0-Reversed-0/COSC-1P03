@@ -3,14 +3,14 @@ package chaotic;
 public class IncrementingPRNG implements PRNG
 {
 
-    private long seed; // The seed is the basis of how we generate the "random" number
-    private long state; // If the user wants to use PRNG twice then we would need to update seed
+    private long seed;          // The seed is the basis of how we generate the "random" number
+    private long currentSeed;   // If the user wants to use PRNG twice then we would need to update seed
 
 
     public IncrementingPRNG(long s)
     {
-        seed = s;
-        state = seed;
+        seed = s;               // set the seed to whatever user decides to set it as
+        currentSeed = seed;     // since our current seed is kind of like pointer node in linked lists, we should set our
     }
 
     public IncrementingPRNG()
@@ -26,7 +26,13 @@ public class IncrementingPRNG implements PRNG
 
     public double randomDouble()
     {
-        return 0;
+        double decimalSeed = ((double) currentSeed / Integer.MAX_VALUE);
+
+        double random = (decimalSeed % (1.0));
+
+        updateSeed();
+
+        return random;
     }
 
     /**
@@ -45,9 +51,9 @@ public class IncrementingPRNG implements PRNG
             throw new PRNGException("The lower bound was higher than the upperbound");
         }
 
-        int random = (int) (((state % (upperbound - lower_bound)) + lower_bound) % Integer.MAX_VALUE);
+        int random = (int) (((currentSeed % (upperbound - lower_bound)) + lower_bound) % Integer.MAX_VALUE);
 
-        state = (state + (state / 2)) % Long.MAX_VALUE;
+        updateSeed();
 
         return random;
     }
@@ -90,5 +96,15 @@ public class IncrementingPRNG implements PRNG
     public long getSeed()
     {
         return seed;
+    }
+
+    /**
+     * Typing out this line over and over again is not it
+     * So I just made this method to update the seed everytime a "random" number is generated
+     */
+
+    private void updateSeed()
+    {
+        currentSeed = (currentSeed + (currentSeed / 2)) % Long.MAX_VALUE;
     }
 }
