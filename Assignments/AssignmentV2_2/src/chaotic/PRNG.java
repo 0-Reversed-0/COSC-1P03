@@ -3,6 +3,12 @@ package chaotic;
 public interface PRNG
 {
 
+    /**
+     * Just our default randomize but with doubles instead
+     * @return a random decimal number
+     */
+
+    double randomDouble();
 
     /**
      * If the user wants a random number from a certain range of numbers then they can set the randomizer
@@ -18,6 +24,7 @@ public interface PRNG
      * If the user wants to set a limit on how far the randomize goes then they can. The lower bound will still be 0.
      * @param upperbound the ending point of our range, excluding our upper bound.
      * @return a random number???????
+     * @throws PRNGException if the upper bound is negative since our starting point is at 0 from the default
      */
 
     int randomize(int upperbound);
