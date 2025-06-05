@@ -3,12 +3,14 @@ package chaotic;
 public class IncrementingPRNG implements PRNG
 {
 
-    long seed;
+    private long seed; // The seed is the basis of how we generate the "random" number
+    private long state; // If the user wants to use PRNG twice then we would need to update seed
 
 
     public IncrementingPRNG(long s)
     {
         seed = s;
+        state = seed;
     }
 
     public IncrementingPRNG()
@@ -38,7 +40,16 @@ public class IncrementingPRNG implements PRNG
 
     public int randomize(int lower_bound, int upperbound)
     {
-        return 0;
+        if (lower_bound > upperbound)
+        {
+            throw new PRNGException("The lower bound was higher than the upperbound");
+        }
+
+        int random = (int) (((state % (upperbound - lower_bound)) + lower_bound) % Integer.MAX_VALUE);
+
+        state = (state + (state / 2)) % Long.MAX_VALUE;
+
+        return random;
     }
 
     /**
@@ -51,7 +62,12 @@ public class IncrementingPRNG implements PRNG
 
     public int randomize(int upperbound)
     {
-        return 0;
+        if (upperbound > 0)
+        {
+            throw new PRNGException("The upperbound was lower than 0");
+        }
+
+        return randomize(0, upperbound);
     }
 
     /**
@@ -62,7 +78,7 @@ public class IncrementingPRNG implements PRNG
 
     public int randomize()
     {
-        return 0;
+        return randomize(0, Integer.MAX_VALUE);
     }
 
     /**
