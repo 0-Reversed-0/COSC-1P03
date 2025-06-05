@@ -3,12 +3,14 @@ package L5;
 /**
  * Runtime exception is basically an unchecked exception
  * To explain what am unchecked exception is we have to explain a normal exception
- * In a literal sense, a checked exception is an exception checked when a class in compiled (Example ClassNotFoundException: Basically anything that the IDE will highlight red line over is a checked exception)
- * Now the exact opposite that is an unchecked exception is where the IDE does not scream you for.
- * Exceptions like these get pass the compiler and will result in a crash when a program is runs (Example: ArrayIndexOutOfBoundsException will not have a red line because it is impossible for the IDE to know until the program is run)
+ * In a literal sense, a checked exception is an exception checked when a class in compiled
+ * (Example ClassNotFoundException: Basically any error that will not allow the program to run at all will be a checked exception. This means that any exception that is caught when the error is compiled is a checked exception)
+ * Now the exact opposite that is an unchecked exception is where it slips past the compiler
+ * Exceptions like these get pass the compiler and will result in a crash when the program runs into it or in the "Runtime" of the program
+ * (Example: ArrayIndexOutOfBoundsException: It will crash the program only when the index goes overboard and will never been seen by the compiler)
  */
 
-public class StopTrollingException extends RuntimeException //basically says that a Stop Trolling class is a Runtime exception or an unchecked exception
+public class StopTrollingException extends RuntimeException //basically says that a Stop Trolling class is a Runtime(uncheck) exception that will crash the program if ever ran into
 {
 
     /*
