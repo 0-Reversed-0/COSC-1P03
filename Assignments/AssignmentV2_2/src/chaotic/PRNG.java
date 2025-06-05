@@ -4,7 +4,7 @@ public interface PRNG
 {
 
     /**
-     * Just our default randomize but with doubles instead
+     * Just our default randomize but with doubles instead from ranges 0.0 to 1
      * @return a random decimal number
      */
 
@@ -30,7 +30,7 @@ public interface PRNG
     int randomize(int upperbound);
 
     /**
-     * A method gives a random number from [0, 1) since no boundaries were given. This method is the default random number generator.
+     * A method gives a random number from [0, Integer.MAX_Value) since no boundaries were given. This method is the default random number generator.
      * @return a random number!??!?!
      */
 
