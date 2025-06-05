@@ -4,16 +4,15 @@ public interface PRNG
 {
 
 
-
     /**
      * If the user wants a random number from a certain range of numbers then they can set the randomizer
-     * @param lowerbound the starting point of our range, including our lower bound.
+     * @param lower_bound the starting point of our range, including our lower bound.
      * @param upperbound the ending point of our range, excluding our upper bound.
      * @return a random number!!!!!!!
-     * @throws chaotic.PRNGException
+     * @throws PRNGException if the lower bound is greater than the upperbound
      */
 
-    int randomize(int lowerbound, int upperbound);
+    int randomize(int lower_bound, int upperbound);
 
     /**
      * If the user wants to set a limit on how far the randomize goes then they can. The lower bound will still be 0.
@@ -32,7 +31,7 @@ public interface PRNG
 
     /**
      * A method to get the seed if no seed is implemented then we would use the current time of the system to generate the number.
-     * @return the seed!!!!!!!!!!!!!
+     * @return the seed?!?!?!?
      */
 
     long getSeed();
