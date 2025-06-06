@@ -1,5 +1,15 @@
 package chaotic;
 
+/**
+ * PRNG is a pseudo random number generator
+ * It generates seemingly random numbers rather than actual true random numbers, giving the illusion of randomness
+ *
+ * This interface defines 3 ADTs
+ * Incrementing PRNG ADT
+ * Timely PRNG ADT
+ * Basic PRNG ADT
+ */
+
 public interface PRNG
 {
 
