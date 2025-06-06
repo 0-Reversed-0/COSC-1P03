@@ -109,7 +109,14 @@ public class Sequentially_LinkedList
 
     public void addToFront(int value)
     {
-        head = new Node(value, head); //It is seriously easy
+        head = new Node(value, head);
+
+        /*
+         * Java equates the right side first
+         * head = **** new Node(value, head) ***** this obviously highlighted array goes
+         * First java makes a new node which has a value of lets say 19 and has a pointer to the head (which currently equals to a null / the starting point before this function was called)
+         * Then, java sets head to the new node.
+         */
     }
 
     /**
