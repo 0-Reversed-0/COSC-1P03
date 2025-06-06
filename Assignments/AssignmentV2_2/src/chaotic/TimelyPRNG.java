@@ -8,22 +8,33 @@ package chaotic;
 public class TimelyPRNG implements PRNG
 {
 
-    private long seed;              // seed and internal state would set the same way
-    private long internalState;
-    private long initialTime;       // we need to know when the object was created and when the last time a method was called
+    private long initialTime; // we need to know when the object was created and when the last time a method was called
+    private long seed; // Our basis for creating a random number
+    private long internalState; // seed and internal state would set the same way
+
+    /**
+     * This constructor is called when the user wants to use their own seed
+     * (even if we input the same seed twice we would not get the same result so there is not much point to setting the seed but this is an assignment requirement)
+     *
+     * @param input the user inputted seed can be any "long" type number
+     */
 
     public TimelyPRNG(long input)
     {
+        initialTime = System.nanoTime(); // We would want to make the initialTime the first variable we set since we need to
         seed = input;
         internalState = seed;
-        initialTime = System.nanoTime();
     }
+
+    /**
+     * The default constructor just sets the seed to current System time.
+     */
 
     public TimelyPRNG()
     {
+        initialTime = System.nanoTime(); // we don't use this() since the time when the object was created is different from the time the seed was set
         seed = System.nanoTime();
         internalState = seed;
-        initialTime = System.nanoTime(); // we don't use this() since the time when the object was created is different from the seed time
     }
 
     /**
@@ -47,7 +58,7 @@ public class TimelyPRNG implements PRNG
          * Normally if you do any# % mod 1 it would give 0 since divide anything by 1 it would be give no remainder
          * This is problem because we want to go from [0, 1) and setting a boundary like 0.99999... would not cut it since 0.99999... included in the boundary
          * But casting current state do a double wouldn't do the trick either because 26782173.00 % 1 = 0 regardless
-         * If we divide current state by a crazy long number like Integer Max Value (not double or long because it would result in a crazy long decimal) then,
+         * If we divide current state by a crazy long number like Integer Max Value (not double.max or long.max because it would result in a crazy long decimal) then,
          * Current state (decimal state now) would become a crazy fraction giving us decimals at the end
          * Then once the state is calculated in the modulo it essentially cuts off the whole number part of the number and only evaluates the decimal since thinking logically,
          * how many times does 1 go into 26782173.48392048? 26782173 times would be the answer. Leaving us 0.48392048 which would be our new random number
@@ -76,7 +87,7 @@ public class TimelyPRNG implements PRNG
     {
         if (lower_bound > upperbound) // makes sure that the program stays in bounds
         {
-            throw new PRNGException();
+            throw new PRNGException("Lower bound should not be greater than");
         }
 
         int random = (int) (((internalState % (upperbound - lower_bound)) + lower_bound) % Integer.MAX_VALUE); // Do you like the first explanation rant? Well here's a second!!!
@@ -114,7 +125,7 @@ public class TimelyPRNG implements PRNG
     {
         if (upperbound <= 0) // since the instructions specified that it starts at 0 then we have to check if its above 0
         {
-            throw new PRNGException();
+            throw new PRNGException("Upperbound cannot be 0 or less 0");
         }
 
         return randomize(0, upperbound); // we can use the lower/upper bound method to get the random number to make our lives easier
@@ -143,7 +154,7 @@ public class TimelyPRNG implements PRNG
     }
 
     /**
-     * The updateState method in this object
+     * The updateState method in this object uses time to update the seed by adding the displacement of time to the state
      */
 
     private void updateState()
@@ -152,9 +163,21 @@ public class TimelyPRNG implements PRNG
 
         // We do this because we want to update the state AFTER it's been use
 
-        long timeDisplacement = currentTime - initialTime; // we now want to know how much time has it been since the previous call (which is  the displacement of both times)
+        long timeDisplacement = (long) ((currentTime - initialTime) * 3293221.949083); // we now want to know how much time has it been since the previous call (which is  the displacement of both times)
 
-        internalState += 1 % Long.MAX_VALUE; // then we want to add to current state
+        /*
+         * Now you may be asking wait why are multiplying it by this random decimal number by the time displacement? That wouldn't make it the time displacement at all then?
+         * I'll explain after we update the seed...
+         */
+
+        internalState += timeDisplacement % Long.MAX_VALUE; // then we want to change the current state
+
+        /*
+         * The time displacement between the last instance of the method being called / object being created is trivial
+         * This is because we live in the modern age where computers having ultra-fast processors are in literal family computers
+         * And since literally every operation is at a Big O cost of O(1) in this class, then the program would be crazy fast
+         * Meaning the time it between
+         */
 
         initialTime = currentTime; // now we would want to update the initial time to the current time because we would want to prepare for the next call
     }

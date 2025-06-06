@@ -1,36 +1,24 @@
 package chaotic;
 
 /**
- * This class generates random values using a seed
- * This seed will be incremented to get a random number each time a method is called
+ * The Basic PRNG is the traditional pseudo number generator
+ * It uses a specific formula provided
  */
 
-public class IncrementingPRNG implements PRNG
+public class BasicPRNG implements PRNG
 {
+    long seed; // Our basis for making a random number is the seed
+    long internalState; // Our internal state will be equal to the seed and be manipulated to get the random seed
 
-    private long seed; // The seed is the basis of how we generate the "random" number
-    private long internalState; // If the user wants to use PRNG twice then we would need to update seed so we use a temporary seed to update the seed
-
-    /**
-     * This constructor is called when the user wants to set the seed. If the user puts the same seed twice we get same "random" values
-     *
-     * @param input the user inputted seed can be any "long" type number
-     */
-
-    public IncrementingPRNG(long input)
+    public BasicPRNG(long input)
     {
-        seed = input; // set the seed to whatever user decides to set it as
-        internalState = seed; // our current seed is kind of like pointer node in linked lists, hence we should set our current seed to the original seed so that we keep the original intact
+        seed = input;
+        internalState = seed;
     }
 
-    /**
-     * If the user does not know what number they like then we can help them out set seed to the current system time in nanoseconds.
-     * We do this because nanoseconds gives a longer more "random" value we can use to work around with.
-     */
-
-    public IncrementingPRNG()
+    public BasicPRNG()
     {
-        this(System.nanoTime()); // if the user decides not to set the seed then we would
+        this(System.nanoTime());
     }
 
     /**
@@ -151,14 +139,20 @@ public class IncrementingPRNG implements PRNG
     }
 
     /**
-     * The current state need to be updated somehow,
-     * So we have an updateState method where in this the state get updated via:
-     * Adding the current state value to half of the current state value
-     * We make a private method since we do not want clients to mess with the state at all or even see the state (hence the state would be abstract)
+     * The update seed method of Basic PRNG by using a formula to update the seed
+     * This was given in the assignment instructions as state=(1103515245×state+12345)mod2147483647
      */
 
     private void updateState()
     {
-        internalState = Math.abs((internalState + (internalState / 2)) % Long.MAX_VALUE); // We add the %Long.Max_Value so we do not go past the state boundaries
+        internalState = Math.abs((1103515245 * internalState + 12345) % Integer.MAX_VALUE);
+
+        /*
+         * You might say to yourself why is there a little Math.abs there?
+         * To explain the formula given to us to update the state will give us a negative number each time we update
+         * To only way to fix that is to use Math.abs to make sure the internal state does not go negative.
+         * The guidelines provided to us never mention we need to do anything outside of this,
+         * BUT since there is no way around this I just use Math.abs to make this work the way it should
+         */
     }
 }

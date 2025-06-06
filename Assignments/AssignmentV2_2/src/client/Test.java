@@ -4,7 +4,7 @@ import chaotic.*;
 
 public class Test
 {
-    PRNG p = new IncrementingPRNG();
+    PRNG p = new BasicPRNG();
 
     public Test()
     {
@@ -12,11 +12,11 @@ public class Test
         {
             try
             {
-                System.out.println(p.randomize(15, 5));
+                System.out.println(p.randomize(20));
             }
-            catch (PRNGException e)
+            catch(PRNGException e)
             {
-                System.out.println("didn't work out");
+                System.out.println(e.getMessage());
             }
         }
     }
