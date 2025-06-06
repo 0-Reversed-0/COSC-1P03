@@ -1,36 +1,29 @@
 package chaotic;
 
 /**
- * This class generates random values using a seed
- * This seed will be incremented to get a random number each time a method is called
+ * This class generated random value using a seed.
+ * No matter what seed a user enters you can never get the same results twice.
  */
 
-public class IncrementingPRNG implements PRNG
+public class TimelyPRNG implements PRNG
 {
 
-    private long seed;            // The seed is the basis of how we generate the "random" number
-    private long internalState;   // If the user wants to use PRNG twice then we would need to update seed so we use a temporary seed to update the seed
+    private long seed;              // seed and internal state would set the same way
+    private long internalState;
+    private long initialTime;       // we need to know when the object was created and when the last time a method was called
 
-    /**
-     * If the user decides to set the seed instead of it being system time then they can put it in the object arguments
-     *
-     * @param input the user inputted seed
-     */
-
-    public IncrementingPRNG(long input)
+    public TimelyPRNG(long input)
     {
-        seed = input;           // set the seed to whatever user decides to set it as
-        internalState = seed;     // our current seed is kind of like pointer node in linked lists, hence we should set our current seed to the original seed so that we keep the original intact
+        seed = input;
+        internalState = seed;
+        initialTime = System.nanoTime();
     }
 
-    /**
-     * If the user does not know what number they like then we can help them out set seed to the current system time in nanoseconds.
-     * We do this because nanoseconds gives a longer more "random" value we can use to work around with.
-     */
-
-    public IncrementingPRNG()
+    public TimelyPRNG()
     {
-        this(System.nanoTime()); // if the user decides not to set the seed then we would
+        seed = System.nanoTime();
+        internalState = seed;
+        initialTime = System.nanoTime(); // we don't use this() since the time when the object was created is different from the seed time
     }
 
     /**
@@ -50,7 +43,7 @@ public class IncrementingPRNG implements PRNG
          *
          * I convert the state to a double so the result would be in a double
          * The reason why I divide it by specifically integer max value is because we want the current state is in decimal form,
-         * Because current state can have a result for mod 1 if done so
+         * Because current state can have a result for mod 1 that is not 0
          * Normally if you do any# % mod 1 it would give 0 since divide anything by 1 it would be give no remainder
          * This is problem because we want to go from [0, 1) and setting a boundary like 0.99999... would not cut it since 0.99999... included in the boundary
          * But casting current state do a double wouldn't do the trick either because 26782173.00 % 1 = 0 regardless
@@ -98,13 +91,13 @@ public class IncrementingPRNG implements PRNG
          * 5) We finally cast the long into an int so it can be stored in the "random" variable!!!!!
          *
          * To understand why we did the first step, it's because we just want the range of values without caring where it starts and ends
-         * Then with that range we want our state to be in bounds of the range
+         * Then with that range we want our seed to be in bounds of the range
          * Afterward we add the lower bound so that we no matter what it starts from the lower bound, and it never goes above the upper bound
          * Example: (21 % (10-5) ) + 5 -> (21 % 5) + 5 -> 21mod5 = 1 ... 1 + 5 = 6. 6 would be inbounds for lower/upper bound of 5 - 10
          * Then finally we just make sure that it random number does not exceed the Integer Max Value (mod helps us here to YIPPEE)
          */
 
-        updateState(); // only other time update state needs to be called since we just reuse this instance of randomizer
+        updateState(); // only other time update seed needs to be called since we just reuse this instance of randomizer
 
         return random;
     }
@@ -124,12 +117,11 @@ public class IncrementingPRNG implements PRNG
             throw new PRNGException();
         }
 
-        return randomize(1, upperbound); // we can use the lower/upper bound method to get the random number to make our lives easier
+        return randomize(0, upperbound); // we can use the lower/upper bound method to get the random number to make our lives easier
     }
 
     /**
-     * A method gives a random number from [0, Integer.MAX_Value) since no boundaries were given.
-     * This method is the default random number generator.
+     * A method gives a random number from [0, Integer.MAX_Value) since no boundaries were given. This method is the default random number generator.
      *
      * @return a random number!??!?!
      */
@@ -151,14 +143,19 @@ public class IncrementingPRNG implements PRNG
     }
 
     /**
-     * The current state need to be updated somehow,
-     * So we have an updateState method where in this the state get updated via:
-     * Adding the current state value to half of the current state value
-     * We make a private method since we do not want clients to mess with the state at all or even see the state (hence the state would be abstract)
+     * The updateState method in this object
      */
 
     private void updateState()
     {
-        internalState = (internalState + (internalState / 2)) % Long.MAX_VALUE; // We add the %Long.Max_Value so we do not go past the state boundaries
+        long currentTime = System.nanoTime(); // First we would want to capture the exact time when the randomize method made a new random number
+
+        // We do this because we want to update the state AFTER it's been use
+
+        long timeDisplacement = currentTime - initialTime; // we now want to know how much time has it been since the previous call (which is  the displacement of both times)
+
+        internalState += 1 % Long.MAX_VALUE; // then we want to add to current state
+
+        initialTime = currentTime; // now we would want to update the initial time to the current time because we would want to prepare for the next call
     }
 }

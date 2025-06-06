@@ -10,7 +10,14 @@ public class Test
     {
         for (int i = 0; i < 20; i++)
         {
-            System.out.println(p.randomDouble());
+            try
+            {
+                System.out.println(p.randomize(15, 5));
+            }
+            catch (PRNGException e)
+            {
+                System.out.println("didn't work out");
+            }
         }
     }
 
