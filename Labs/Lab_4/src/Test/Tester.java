@@ -37,6 +37,7 @@ public class Tester
 
     void testAppend(int upperbound)
     {
+        System.out.println();
         for (int i = 2; i <= upperbound; i++)
         {
             String s = Integer.toString(i);
@@ -56,8 +57,8 @@ public class Tester
 
     void testPrepend()
     {
-        t.prepend("1 "); // constant time
-        t.prepend("0 ");
+        t.prepend("1 \n"); // constant time
+        t.prepend("0 \n");
     }
 
     void testCount()
