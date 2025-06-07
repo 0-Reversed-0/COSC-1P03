@@ -17,11 +17,21 @@ public class BasicPRNG implements PRNG
     long seed; // Our basis for making a random number is the seed
     long internalState; // Our internal state will be equal to the seed and be manipulated to get the random seed
 
+    /**
+     * The Basic PRNG constructor here accepts a user inputted seed which can return the same random set of numbers if inputted a second time.
+     *
+     * @param input
+     */
+
     public BasicPRNG(long input)
     {
-        seed = input;
-        internalState = seed;
+        seed = input; // the user inputs the seed
+        internalState = seed; // then we copy the seed into the state so we do not have to change the seed to make the random number
     }
+
+    /**
+     * The default constructor relies on the system's nanotime to create the seed and state.
+     */
 
     public BasicPRNG()
     {
@@ -154,11 +164,13 @@ public class BasicPRNG implements PRNG
     {
         /*
          * You might say to yourself why is there a little Math.abs there?
-         * To explain the formula given to us to update the state will give us a negative number each time we update
+         * To explain the formula given to us to update.
+         * But, the state will give us a negative number each time we update.
          * To only way to fix that is to use Math.abs to make sure the internal state does not go negative.
          * The guidelines provided to us never mention we need to do anything outside of this,
          * BUT since there is no way around this I just use Math.abs to make this work the way it should.
-         * This is the only way I saw this working because even using the debugger to best of my ability I could not figure out how
+         * This is the only way I saw this working because even using the debugger to best of my ability I could not figure out how to not make this output negative
+         * It cannot be an issue in the methods implemented either, since they are implemented the same.
          */
 
         internalState = Math.abs((1103515245 * internalState + 12345) % Integer.MAX_VALUE);

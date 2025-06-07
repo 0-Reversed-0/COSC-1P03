@@ -1,6 +1,5 @@
 /**
- * Author: Arhum Ahmed Khan
- * Student ID: 8074114
+ * Author: Reversed_0
  * Course: COSC 1P03
  * Title: Rando Reincarnated - Assignment 2
  */
@@ -40,7 +39,7 @@ public class TimelyPRNG implements PRNG
     public TimelyPRNG()
     {
         initialTime = System.nanoTime(); // we don't use this() since the time when the object was created is different from the time the seed was set
-        seed = System.nanoTime();
+        seed = System.nanoTime(); // the seed will be different from the seed in orders of operation
         internalState = seed;
     }
 
@@ -59,24 +58,24 @@ public class TimelyPRNG implements PRNG
          * 1) it converts the current state to a double via casting
          * 2) I divide the current state by the Integer Max Value
          *
-         * I convert the state to a double so the result would be in a double
+         * I convert the state to a double so the result would be in a double.
          * The reason why I divide it by specifically integer max value is because we want the current state is in decimal form,
-         * Because current state can have a result for mod 1 that is not 0
-         * Normally if you do any# % mod 1 it would give 0 since divide anything by 1 it would be give no remainder
-         * This is problem because we want to go from [0, 1) and setting a boundary like 0.99999... would not cut it since 0.99999... included in the boundary
-         * But casting current state do a double wouldn't do the trick either because 26782173.00 % 1 = 0 regardless
+         * Because current state cannot have a result for mod 1 that isn't 0.
+         * Normally if you do any whole number % mod 1 it would give 0 since divide anything by 1 it would be give no remainder (Ex: 427842378 % 1 = 0).
+         * This is problem because we want to go from [0, 1) and setting a boundary to like 0.99999... would not cut it since 0.99999... is included in the boundary
+         * But casting current state to a double wouldn't do the trick either because 26782173.00 % 1 = 0 (or any random number.00 % 1) regardless.
          * If we divide current state by a crazy long number like Integer Max Value (not double.max or long.max because it would result in a crazy long decimal) then,
-         * Current state (decimal state now) would become a crazy fraction giving us decimals at the end
+         * Current state (decimalSeed now) would become a crazy fraction giving us decimals at the end,
          * Then once the state is calculated in the modulo it essentially cuts off the whole number part of the number and only evaluates the decimal since thinking logically,
          * how many times does 1 go into 26782173.48392048? 26782173 times would be the answer. Leaving us 0.48392048 which would be our new random number
          * Even if in the rare chance that the state is a multiple of integer max value which would give a remainder of 0; it would still be valid since 0 is included in the range.
          * This also explains why we use Max value because there little to no chance of getting a multiple of that value since it is a huge number
-         * This way of doing things may loose precision but in my case I could not care less since it does the job man
+         * This way of doing things may lose precision but in my case I could not care less since it does the job man.
          */
 
         double random = (decimalSeed % (1.0)); // gives us a random decimal from cutting the whole number off
 
-        updateState(); //update seed would not change since we just cast the current seed as a double
+        updateState(); //update seed would not change since we just cast the internal state as a double
 
         return random;
     }
@@ -170,7 +169,7 @@ public class TimelyPRNG implements PRNG
 
         // We do this because we want to update the state AFTER it's been use
 
-        long timeDisplacement = (long) ((currentTime - initialTime) * 3293221.949083); // we now want to know how much time has it been since the previous call (which is  the displacement of both times)
+        long timeDisplacement = (long) ((currentTime - initialTime) * 3293221.949083); // we now want to know how much time has it been since the previous call (which is the displacement of both times)
 
         /*
          * Now you may be asking wait why are multiplying it by this random decimal number by the time displacement? That wouldn't make it the time displacement at all then?
@@ -180,10 +179,16 @@ public class TimelyPRNG implements PRNG
         internalState += timeDisplacement % Long.MAX_VALUE; // then we want to change the current state
 
         /*
-         * The time displacement between the last instance of the method being called / object being created is trivial
-         * This is because we live in the modern age where computers having ultra-fast processors are in literal family computers
-         * And since literally every operation is at a Big O cost of O(1) in this class, then the program would be crazy fast
-         * Meaning the time it between
+         * The time displacement between the last instance of the method being called / object being created is trivial.
+         * This is because we live in the modern age where computers having ultra-fast processors are in literal family computers.
+         * And since literally every operation is at a Big O cost of O(1) in this class, then the program would be crazy fast.
+         * Meaning the time it between the last instance and current time is next to nothing.
+         * This means that our internalState BARELY updates at all.
+         * So we multiply it by a random decimal number so it would make the displacement just enough to update the state.
+         * You might ask why not just multiply it by integer max value instead of some random number?
+         * This is because of scale.
+         * If we multiply too high then we're essentially just multiplying by 10 if you get what that means. (It wouldn't change anything because of mod).
+         * So after a little trial an error I just multiplied the state until it got a number that made sense!
          */
 
         initialTime = currentTime; // now we would want to update the initial time to the current time because we would want to prepare for the next call
