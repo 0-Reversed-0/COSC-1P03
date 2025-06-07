@@ -152,8 +152,6 @@ public class BasicPRNG implements PRNG
 
     private void updateState()
     {
-        internalState = Math.abs((1103515245 * internalState + 12345) % Integer.MAX_VALUE);
-
         /*
          * You might say to yourself why is there a little Math.abs there?
          * To explain the formula given to us to update the state will give us a negative number each time we update
@@ -162,5 +160,7 @@ public class BasicPRNG implements PRNG
          * BUT since there is no way around this I just use Math.abs to make this work the way it should.
          * This is the only way I saw this working because even using the debugger to best of my ability I could not figure out how
          */
+
+        internalState = Math.abs((1103515245 * internalState + 12345) % Integer.MAX_VALUE);
     }
 }

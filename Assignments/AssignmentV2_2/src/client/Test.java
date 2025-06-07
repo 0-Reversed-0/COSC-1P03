@@ -12,7 +12,7 @@ import chaotic.*;
 import java.util.Scanner; // I know in guidelines it was mentioned not to use any other import, but using BasicIO for the test harness is so difficult for what essentially is a horrible version of scanner
 
 /**
- * A class meant to test the 3 PRNG concrete classes
+ * Test is a class meant to test the 3 PRNG concrete classes
  */
 
 public class Test
@@ -67,7 +67,7 @@ public class Test
                     break;
 
                 case (-1):
-                    System.out.println("\nThanks for using the Test Harness! While your at it you should give 100 on this assignment. I worked hard :)");
+                    System.out.println("\nThanks for using the Test Harness :)");
                     continueRunning = false;
                     break;
 
@@ -93,7 +93,7 @@ public class Test
             System.out.println("\t 1) Test the default random number generator");
             System.out.println("\t 2) Test the upperbound random number generator (cannot accept upperbounds of 0 and under)");
             System.out.println("\t 3) Test the upper and lower bound random number generator (cannot accept lower bounds greater than upper bounds)");
-            System.out.println("\t 4) Test the decimal random number generator (cannot accept lower bounds greater than upper bounds)");
+            System.out.println("\t 4) Test the decimal random number generator");
             System.out.println("\t 5) Test if you can get the seed");
 
             System.out.print("Choose: ");
@@ -207,7 +207,7 @@ public class Test
             System.out.println("\t 1) Test the default random number generator");
             System.out.println("\t 2) Test the upperbound random number generator (cannot accept upperbounds of 0 and under)");
             System.out.println("\t 3) Test the upper and lower bound random number generator (cannot accept lower bounds greater than upper bounds)");
-            System.out.println("\t 4) Test the decimal random number generator (cannot accept lower bounds greater than upper bounds)");
+            System.out.println("\t 4) Test the decimal random number generator");
             System.out.println("\t 5) Test if you can get the seed");
 
             System.out.print("Choose: ");
@@ -321,7 +321,7 @@ public class Test
             System.out.println("\t 1) Test the default random number generator");
             System.out.println("\t 2) Test the upperbound random number generator (cannot accept upperbounds of 0 and under)");
             System.out.println("\t 3) Test the upper and lower bound random number generator (cannot accept lower bounds greater than upper bounds)");
-            System.out.println("\t 4) Test the decimal random number generator (cannot accept lower bounds greater than upper bounds)");
+            System.out.println("\t 4) Test the decimal random number generator");
             System.out.println("\t 5) Test if you can get the seed");
 
             System.out.print("Choose: ");

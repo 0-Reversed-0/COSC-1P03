@@ -27,11 +27,6 @@ public class HiLo
     {
         boolean isRunning = true;
 
-        System.out.print("\nFirst, before we start the game choose the limit on how far the winning number can generate to: ");
-        int range = input.nextInt();
-        System.out.print("and where they start: ");
-        int lower_bound = input.nextInt();
-        System.out.println();
 
         while (isRunning)
         {
@@ -48,13 +43,13 @@ public class HiLo
             switch (choice)
             {
                 case 1:
-                    hiloIncrement(range, lower_bound);
+                    hiloIncrement();
                     break;
                 case 2:
-                    hiloTimely(range, lower_bound);
+                    hiloTimely();
                     break;
                 case 3:
-                    hiloBasic(range, lower_bound);
+                    hiloBasic();
                     break;
                 case (-1):
                     System.out.println("\nThanks for playing!\n");
@@ -70,8 +65,14 @@ public class HiLo
      * If the user decides to guess using the increment object then this method would be called
      */
 
-    private void hiloIncrement(int range, int lower_bound)
+    private void hiloIncrement()
     {
+        System.out.print("\nFirst, before we start the game choose the limit on how far the winning number can generate to: ");
+        int range = input.nextInt();
+        System.out.print("and where they start: ");
+        int lower_bound = input.nextInt();
+        System.out.println();
+
         int currentAnswer = (int) (range * I.randomDouble() + lower_bound); // literally using it like a Math.random function
 
         /*
@@ -105,8 +106,15 @@ public class HiLo
      * If the user decides to guess using the timely object then this method would be called
      */
 
-    private void hiloTimely(int range, int lower_bound)
+    private void hiloTimely()
     {
+
+        System.out.print("\nFirst, before we start the game choose the limit on how far the winning number can generate to: ");
+        int range = input.nextInt();
+        System.out.print("and where they start: ");
+        int lower_bound = input.nextInt();
+        System.out.println();
+
         int currentAnswer = (int) (range * T.randomDouble() + lower_bound); // literally using it like a Math.random function
 
         /*
@@ -140,8 +148,14 @@ public class HiLo
      * If the user decides to guess using the basic object then this method would be called
      */
 
-    private void hiloBasic(int range, int lower_bound)
+    private void hiloBasic()
     {
+        System.out.print("\nFirst, before we start the game choose the limit on how far the winning number can generate to: ");
+        int range = input.nextInt();
+        System.out.print("and where they start: ");
+        int lower_bound = input.nextInt();
+        System.out.println();
+
         int currentAnswer = (int) (range * B.randomDouble() + lower_bound); // literally using it like a Math.random function
 
         /*
