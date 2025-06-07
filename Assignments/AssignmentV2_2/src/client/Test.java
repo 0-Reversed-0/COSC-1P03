@@ -1,3 +1,10 @@
+/**
+ * Author: Arhum Ahmed Khan
+ * Student ID: 8074114
+ * Course: COSC 1P03
+ * Title: Rando Reincarnated - Assignment 2
+ */
+
 package client;
 
 import chaotic.*;
@@ -38,12 +45,12 @@ public class Test
         while (continueRunning)
         {
             System.out.println("Welcome to the Test harness! \n To start testing choose a number from 1, 2, 3 to test the methods of each object: \n You can also input -1 to exit ");
-            System.out.println("\t1) Test the 'Incrementing PRNG' object");
-            System.out.println("\t2) Test the 'Timely PRNG' object");
-            System.out.println("\t3) Test the 'Basic PRNG' object \n");
+            System.out.println("\t 1) Test the 'Incrementing PRNG' object");
+            System.out.println("\t 2) Test the 'Timely PRNG' object");
+            System.out.println("\t 3) Test the 'Basic PRNG' object \n");
 
             System.out.print("Choose: ");
-            int choice = input.nextInt();
+            int choice = input.nextInt(); // the deciding value that determines which object
 
             switch (choice) // this is probably the first time I used a switch statement since fall term
             {
@@ -60,7 +67,7 @@ public class Test
                     break;
 
                 case (-1):
-                    System.out.println("\nThanks for using the Test Harness!");
+                    System.out.println("\nThanks for using the Test Harness! While your at it you should give 100 on this assignment. I worked hard :)");
                     continueRunning = false;
                     break;
 

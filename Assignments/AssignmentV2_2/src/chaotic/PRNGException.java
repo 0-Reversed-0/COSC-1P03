@@ -1,7 +1,14 @@
+/**
+ * Author: Arhum Ahmed Khan
+ * Student ID: 8074114
+ * Course: COSC 1P03
+ * Title: Rando Reincarnated - Assignment 2
+ */
+
 package chaotic;
 
 /**
- * PRNGException catches any invalid boundaries that the client inputs .
+ * PRNGException catches any invalid boundaries that the client inputs.
  * PRNG is a checked exception
  */
 
