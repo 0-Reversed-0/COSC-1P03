@@ -152,7 +152,8 @@ public class BasicPRNG implements PRNG
          * To explain the formula given to us to update the state will give us a negative number each time we update
          * To only way to fix that is to use Math.abs to make sure the internal state does not go negative.
          * The guidelines provided to us never mention we need to do anything outside of this,
-         * BUT since there is no way around this I just use Math.abs to make this work the way it should
+         * BUT since there is no way around this I just use Math.abs to make this work the way it should.
+         * This is the only way I saw this working because even using the debugger to best of my ability I could not figure out how
          */
     }
 }
