@@ -93,7 +93,7 @@ public class TimelyPRNG implements PRNG
     {
         if (lower_bound > upperbound) // makes sure that the program stays in bounds
         {
-            throw new PRNGException("Lower bound should not be greater than");
+            throw new PRNGException("Lower bound should not be greater than upperbound");
         }
 
         int random = (int) (((internalState % (upperbound - lower_bound)) + lower_bound) % Integer.MAX_VALUE); // Do you like the first explanation rant? Well here's a second!!!
