@@ -15,7 +15,14 @@ public class Main
     {
         poolTest();
         tryCatch();
-        throwExample(-1);
+        try
+        {
+            throwExample(-1);
+        }
+        catch(InvalidAge e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -42,7 +49,7 @@ public class Main
      * @param age - for testing purposes to see if someone wants to troll and put a negative number as an age
      */
 
-    int throwExample(int age)
+    int throwExample(int age) throws InvalidAge
     {
         /*
          * Throw works by wanting our code to work in one specific way
