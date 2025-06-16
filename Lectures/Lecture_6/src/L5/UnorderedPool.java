@@ -35,6 +35,8 @@ public class UnorderedPool implements Pool // this is how we implement an interf
         {
             arr[count++] = M; //if a user decides to add a measurement,
             // then it will add their measurement and go to the next value in the array
+        }else {
+            throw new StopTrollingException("Pool is Full");
         }
     }
 
@@ -54,8 +56,6 @@ public class UnorderedPool implements Pool // this is how we implement an interf
             {
                 min = arr[i].getReading(); // then set the new minimum double as the current Measurement's reading
                 mini = arr[i]; // and set new minimum Measurement as the current Minimum
-            }else {
-                throw new StopTrollingException();
             }
         }
 

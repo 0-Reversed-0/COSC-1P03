@@ -17,11 +17,11 @@ public class Main
         tryCatch();
         try
         {
-            throwExample(-1);
+            throwExample(-1); // This call of this method physically will not work unless handled with a try catch block
         }
         catch(InvalidAge e)
         {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage()); // We can also
         }
     }
 
@@ -35,9 +35,8 @@ public class Main
         try //try catch is basically where you have a block of code you want to see if it works
         {
             //This is the code we want to "try" out
-            UnorderedPool p = null;
-            p.add(new Measurement("bluejay", 12.5)); //obviously not working code (cannot add to null)
-        } catch (Exception e) // here it catches any exception that it comes by
+            UnorderedPool p = new UnorderedPool(-20); // we cannot -20 as a valid capacity obviously so this will throw a StopTrollingException
+        } catch (StopTrollingException e) // here it catches any exception that it comes by
         {
             System.out.println("why dude"); // gives us a message instead of crashing out code
         }

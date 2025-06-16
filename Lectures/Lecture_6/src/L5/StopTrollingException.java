@@ -27,6 +27,7 @@ public class StopTrollingException extends RuntimeException //basically says tha
 
     public StopTrollingException()
     {
-        // If the user does not want to replace the ugly red text with a message they can do so
+        // If the user decides not to use any message that is also possible.
+        // Messages are useful to pinpoint which method's exception was triggered
     }
 }
