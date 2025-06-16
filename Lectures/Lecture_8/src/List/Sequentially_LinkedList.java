@@ -24,12 +24,9 @@ public class Sequentially_LinkedList
 
     public void decapitate()
     {
-        if (head == null)
+        if(head != null)
         {
-            //no public execution :(
-        } else
-        {
-            head = head.next; // makes the front of the list the 2nd value
+            head = head.next;
         }
     }
 
