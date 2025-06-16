@@ -16,16 +16,32 @@ public class Tester
 
         /// Now we just display the damn thing
 
-        List.display(); // Basically testing if traversal works
+        List.display(); // Basically testing if traversal works also note that null is not technically a node in the linked list but rather what the last node is referencing too.
+
+        Tail_LinkedList T = new Tail_LinkedList();
+
+        for (int i = 0; i <= 20; i++)
+        {
+            T.addToLast(i);
+        }
+
+        for (int i = 1; i <= 20; i++)
+        {
+            T.addToFront(i);
+        }
+
+        T.display();
+        System.out.println("\n" + T.getTail());
+
     }
 
     /**
-     * This will test all insertion methods (i.e: add to the front, end, and sorted)
+     * This will test all insertion methods (i.e: addToFront to the front, end, and sorted)
      */
 
     void addTest()
     {
-        /// Simply adding value to the linked list we can use a for loop to add 20 values
+        /// Simply adding value to the linked list we can use a for loop to addToFront 20 values
 
         for (int i = 2; i <= 20; i++) // I want to use 1 in a different example
         {
@@ -35,17 +51,17 @@ public class Tester
             }
         }
 
-        /// I want to add 0 at the end so we can use our amazing add to the end function
+        /// I want to addToFront 0 at the end so we can use our amazing addToFront to the end function
 
-        List.addToEnd(1); // if we want to we can use this function instead to add every node from least to greatest (THE CORRECT WAY TO SORT ANYTHING)
+        List.addToEnd(1); // if we want to we can use this function instead to addToFront every node from least to greatest (THE CORRECT WAY TO SORT ANYTHING)
 
-        /// OH, NO! I forgot to add 10 to my list. No problemo we have the sorted insertion method to help me with this crazy issue
+        /// OH, NO! I forgot to addToFront 10 to my list. No problemo we have the sorted insertion method to help me with this crazy issue
 
         List.sortedInsertion(10); // This would be a normal case but...
 
         /*
-         * Let's say I wanted to add in the front and back with this method it could technically do that for us
-         * This would totally work out too and would essentially be the best version of the "add" method (that is if we wanted our values sorted)
+         * Let's say I wanted to addToFront in the front and back with this method it could technically do that for us
+         * This would totally work out too and would essentially be the best version of the "addToFront" method (that is if we wanted our values sorted)
          */
 
         List.sortedInsertion(21);
