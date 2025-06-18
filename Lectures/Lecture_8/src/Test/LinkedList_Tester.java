@@ -4,35 +4,19 @@ package Test; /**
 
 import List.*;
 
-public class Tester
+public class LinkedList_Tester
 {
 
     Sequentially_LinkedList List = new Sequentially_LinkedList();
 
-    public Tester()
+    public LinkedList_Tester()
     {
         addTest();
         deleteTest();
 
-        /// Now we just display the damn thing
+        /// Now we just display the final result to show that the program works as intended
 
         List.display(); // Basically testing if traversal works also note that null is not technically a node in the linked list but rather what the last node is referencing too.
-
-        Tail_LinkedList T = new Tail_LinkedList();
-
-        for (int i = 0; i <= 20; i++)
-        {
-            T.addToLast(i);
-        }
-
-        for (int i = 1; i <= 20; i++)
-        {
-            T.addToFront(i);
-        }
-
-        T.display();
-        System.out.println("\n" + T.getTail());
-
     }
 
     /**
@@ -51,13 +35,19 @@ public class Tester
             }
         }
 
-        /// I want to addToFront 0 at the end so we can use our amazing addToFront to the end function
+        List.display(); // to show the progress of the linked list
+
+        /// I want to addToFront 1 at the end so we can use our amazing addToFront to the end function
 
         List.addToEnd(1); // if we want to we can use this function instead to addToFront every node from least to greatest (THE CORRECT WAY TO SORT ANYTHING)
+
+        List.display();
 
         /// OH, NO! I forgot to addToFront 10 to my list. No problemo we have the sorted insertion method to help me with this crazy issue
 
         List.sortedInsertion(10); // This would be a normal case but...
+
+        List.display();
 
         /*
          * Let's say I wanted to addToFront in the front and back with this method it could technically do that for us
@@ -67,6 +57,7 @@ public class Tester
         List.sortedInsertion(21);
         List.sortedInsertion(0); // and boom it would work out just fine
 
+        List.display();
     }
 
     /**
@@ -78,11 +69,12 @@ public class Tester
         ///Let's say I HATE the numbers 0 and 21 from our linked list no issue we can remove those treacherous numbers from the linked list
 
         List.decapitate();  // this will remove 21...
+        List.display();
         List.chopTheTail(); // and this would remove that wretched 0
     }
 
     public static void main(String[] args)
     {
-        new Tester();
+        new LinkedList_Tester();
     }
 }

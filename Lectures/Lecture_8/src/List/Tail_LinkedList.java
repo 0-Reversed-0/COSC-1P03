@@ -56,7 +56,67 @@ public class Tail_LinkedList
         }
     }
 
+    /**
+     * A simple method to remove the head.
+     */
 
+    public void removeHead()
+    {
+        if (head != null)
+        {
+            head = head.next; // it does not change from a normal linked list
+        }
+    }
+
+    /**
+     * We can't just have a remove head method with a remove tail method.
+     */
+
+    public void removeTail() // The remove tail method will always be O(n) regardless of the inclusion of the tail node
+    {
+        if (head != null) // It's just a copy of the normal way of removing the tail. the only reason
+        {
+            Node p = head;
+            Node q = null;
+
+            while (p.next != null)
+            {
+                q = p;
+                p = p.next;
+            }
+
+            if (q == null) // empty list case
+            {
+                tail = null;
+            } else // only difference is we need to update the tail or else it will end up as null
+            {
+                tail = q; // make sure that the tail is updated to the penultimate node instead which is Q
+                tail.next = null; // the node before our tail (Node Q) will point to null and essentially remove the tail from the list entirely
+            }
+        }
+    }
+
+
+    public void sortedInsertion(int value) // sorted insertion does not change whatsoever when it comes to having a tail pointer
+    {
+        Node p = head;
+        Node q = null;
+
+        while (p != null && p.item >= value)
+        {
+            q = p;
+            p = p.next;
+        }
+
+        if (q == null)
+        {
+            addToFront(value); // adds a new value to our empty list
+        } else
+        {
+            q.next = new Node(value, p);
+        }
+
+    }
 
     /**
      * A method purely for educational purposes.

@@ -47,12 +47,11 @@ public class Sequentially_LinkedList
 
             if (q == null) // empty list case
             {
-                head = null; // well everything so no chopping tails again :(
+                head = null; // since nothing in the list we just set head to null.
             } else
             {
                 q.next = null; // the node before our tail (Node Q) will point to null and essentially remove the tail from the list entirely
             }
-
         }
     }
 
@@ -75,15 +74,15 @@ public class Sequentially_LinkedList
 
         while (p != null && p.item >= value) // BIG O of N in the worst case because it would take all n values to traverse if the value is at the tail and constant time if it happens to be in the front then it would be constant time
         { // If the pointer is NULL then stop it immediately otherwise check if the next statement is true
-            q = p;          // Q goes ahead up and then
-            p = p.next;     // P goes in front of it
+            q = p;          // Q first catches up with q then...
+            p = p.next;     // P moved one step in front of Q.
         }
 
         /*
          * When the loop ends then it will leave q and p exactly where we want to now set our wonderful value
          */
 
-        if (q == null) // to avoid empty list cases
+        if (q == null) // to avoid empty list case since if q is null the traversal failed at the very start
         {
             head = new Node(value, p); //if its empty then like just make the head a new node
         } else //otherwise...
