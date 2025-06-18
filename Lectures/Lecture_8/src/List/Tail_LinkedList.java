@@ -96,26 +96,30 @@ public class Tail_LinkedList
         }
     }
 
+    /**
+     * Sorted insertion is a method that inputs values from ascending order
+     *
+     * @param value the value that will be sorted into the list
+     */
 
-    public void sortedInsertion(int value) // sorted insertion does not change whatsoever when it comes to having a tail pointer
+    public void sortedInsertion(int value) // sorted insertion only changes for special cases since adding a new node is not that simple anymore
     {
         Node p = head;
         Node q = null;
 
-        while (p != null && p.item >= value)
+        while (p != null && p.item <= value)
         {
             q = p;
             p = p.next;
         }
 
-        if (q == null)
+        if (q == null | p == null)
         {
-            addToFront(value); // adds a new value to our empty list
+            addToLast(value);
         } else
         {
             q.next = new Node(value, p);
         }
-
     }
 
     /**
@@ -157,6 +161,6 @@ public class Tail_LinkedList
             ptr = ptr.next;
         }
 
-        System.out.print("null");
+        System.out.println("null");
     }
 }
