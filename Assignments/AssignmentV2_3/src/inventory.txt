@@ -1,0 +1,29 @@
+Linear
+3_3V
+
+Resistor
+330 Ohm
+180
+100Ohm
+
+Linear
+5V
+
+Buck
+12V
+9V
+3.3V
+
+Step-up
+3.3-4.7V to 5V
+
+Zener Diode
+3.3V 10W
+5V 1W
+3.3V 1W
+
+Linear
+9V
+
+Buck
+5V
