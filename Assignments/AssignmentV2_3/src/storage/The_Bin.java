@@ -1,3 +1,10 @@
+/**
+ * Author: Arhum Ahmed Khan
+ * Student ID: 8074114
+ * Course: COSC 1P03
+ * Title: Bottomless Pit Bins
+ */
+
 package storage;
 
 import java.util.Iterator;
@@ -6,10 +13,12 @@ public class The_Bin<E> implements Bin<E>
 {
 
     Node<E> head;
+    String label;
 
-    public The_Bin()
+    public The_Bin(String L)
     {
         head = null;
+        label = L;
     }
 
     /**
