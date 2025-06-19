@@ -4,6 +4,11 @@ import storage.*;
 import Media.*;
 import BasicIO.*;
 
+/**
+ * Changes made to Wacky:
+ * - Formatting - I like my scopes done this way. Also spaced things out a bit to my liking!
+ */
+
 public class Wacky //fixme remember to remove comments!!!
 {
     public Wacky()
