@@ -30,7 +30,7 @@ public class The_Bin<E> implements Bin<E>
 
         head = head.next;
 
-        return grabbedValue; // fixme
+        return grabbedValue;
     }
 
     /**
