@@ -4,16 +4,10 @@
 
 public class Main
 {
-    
     public Main()
     {
-        int a = factorial(3);
+        int a = factorial(19);
         System.out.println(a);
-    }
-    
-    public void main(String[] args)
-    {
-        new Main();
     }
 
     int factorial(int n)
@@ -26,14 +20,8 @@ public class Main
         return n * factorial(n - 1); // this would be the guaranteed progress to the 1 since n has to decrement
     }
 
-
-
-    int fib(int n)
+    public static void main(String[] args)
     {
-        if (n < 2)
-        {
-            return n;
-        }
-        return fib(n - 2) + fib(n - 1);
+        new Main();
     }
 }
