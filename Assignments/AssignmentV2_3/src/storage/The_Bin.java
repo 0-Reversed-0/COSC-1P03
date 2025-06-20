@@ -12,7 +12,7 @@ import java.util.Iterator;
 public class The_Bin<E> implements Bin<E>
 {
 
-    Node<E> head;
+    private Node<E> head;
     String label;
 
     public The_Bin(String L)

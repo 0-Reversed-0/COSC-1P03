@@ -10,11 +10,13 @@ package storage;
 public class The_Cabinet<E> implements Cabinet<E>
 {
 
-    Node<Bin<E>> head;
+    Node<The_Bin<E>> head;
+    int count;
 
     public The_Cabinet()
     {
         head = null;
+        count = 0;
     }
 
     /**
@@ -27,7 +29,18 @@ public class The_Cabinet<E> implements Cabinet<E>
 
     public void add(E item, String bin)
     {
-        
+        Node<The_Bin<E>> pointer = head;
+
+        while (pointer != null)
+        {
+            if (pointer.item.label.equals(bin)) // bins cannot be full because they are linked lists that do not have a set capacity on how much values it can store, therefore the exception is never thrown.
+            { // I got the .equals() function from Lab 5.
+                pointer.item.add(item);
+                break;
+            }
+
+            pointer = pointer.next;
+        }
     }
 
     /**
@@ -40,7 +53,11 @@ public class The_Cabinet<E> implements Cabinet<E>
 
     public void add(Bin<E> items, String bin)
     {
+        The_Bin<E> newBin = new The_Bin<>(bin);
 
+        head = new Node<>(newBin, head);
+
+        count++;
     }
 
     /**
@@ -53,7 +70,20 @@ public class The_Cabinet<E> implements Cabinet<E>
 
     public E get(String bin)
     {
-        return null;
+        Node<The_Bin<E>> pointer = head;
+
+        while (pointer != null)
+        {
+            if (pointer.item.label.equals(bin))
+            {
+                E value = pointer.item.grab();
+                return value;
+            }
+
+            pointer = pointer.next;
+        }
+
+        throw new DisorganizationException("No label exists");
     }
 
     /**
@@ -67,7 +97,25 @@ public class The_Cabinet<E> implements Cabinet<E>
 
     public int query(String bin)
     {
-        return 0;
+        Node<The_Bin<E>> pointer = head;
+        int query = 0;
+
+        while (pointer != null && pointer.item != null) // to ensure that the item within the bin is not null
+        {
+            if (pointer.item.label.equals(bin))
+            {
+                for (E val : pointer.item)
+                {
+                    query++;
+                }
+
+                break;
+            }
+
+            pointer = pointer.next;
+        }
+
+        return query;
     }
 
     /**
@@ -85,7 +133,21 @@ public class The_Cabinet<E> implements Cabinet<E>
 
     public Bin<E> getBin(String bin)
     {
-        return null;
+        Node<The_Bin<E>> pointer = head;
+
+        while (pointer != null)
+        {
+            if (pointer.item.label.equals(bin))
+            {
+                Bin<E> newBin = pointer.item;
+                pointer.item = null;
+                return newBin;
+            }
+
+            pointer = pointer.next;
+        }
+
+        return new The_Bin<>("");
     }
 
     /**
@@ -102,7 +164,19 @@ public class The_Cabinet<E> implements Cabinet<E>
 
     public String[] getBins()
     {
-        return new String[0];
+        Node<The_Bin<E>> pointer = head;
+        String[] binLabels = new String[count];
+        int i = 0;
+
+        while (pointer != null)
+        {
+            binLabels[i] = pointer.item.label;
+
+            pointer = pointer.next;
+            i++;
+        }
+
+        return binLabels;
     }
 
     /**
@@ -114,6 +188,6 @@ public class The_Cabinet<E> implements Cabinet<E>
 
     public int getCount()
     {
-        return 0;
+        return count;
     }
 }
