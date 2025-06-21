@@ -1,3 +1,10 @@
+/**
+ * Author: Earl Foxwell
+ * Course: COSC 1P03
+ * Title: Bottomless Pit Bins
+ */
+
+
 package client;
 
 import storage.*;

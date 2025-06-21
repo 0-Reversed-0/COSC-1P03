@@ -41,6 +41,17 @@ public class The_Cabinet<E> implements Cabinet<E>
 
             pointer = pointer.next;
         }
+
+        if (pointer == null)
+        {
+            The_Bin<E> newBin = new The_Bin<>(bin);
+
+            newBin.add(item);
+
+            head = new Node<>(newBin, head);
+
+            count++;
+        }
     }
 
     /**
@@ -53,8 +64,6 @@ public class The_Cabinet<E> implements Cabinet<E>
 
     public void add(Bin<E> items, String bin)
     {
-        items = new The_Bin<>(bin);
-
         head = new Node<>((The_Bin<E>) items, head);
 
         count++;
@@ -75,7 +84,7 @@ public class The_Cabinet<E> implements Cabinet<E>
 
         while (pointer != null)
         {
-            if(pointer.item.label.equals(bin))
+            if (pointer.item.label.equals(bin))
             {
                 break;
             }
@@ -187,8 +196,8 @@ public class The_Cabinet<E> implements Cabinet<E>
         {
             binLabels[i] = pointer.item.label;
 
-            pointer = pointer.next;
             i++;
+            pointer = pointer.next;
         }
 
         return binLabels;
