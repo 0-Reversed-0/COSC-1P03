@@ -53,9 +53,9 @@ public class The_Cabinet<E> implements Cabinet<E>
 
     public void add(Bin<E> items, String bin)
     {
-        The_Bin<E> newBin = new The_Bin<>(bin);
+        items = new The_Bin<>(bin);
 
-        head = new Node<>(newBin, head);
+        head = new Node<>((The_Bin<E>) items, head);
 
         count++;
     }
@@ -71,16 +71,22 @@ public class The_Cabinet<E> implements Cabinet<E>
     public E get(String bin)
     {
         Node<The_Bin<E>> pointer = head;
+        E value;
 
         while (pointer != null)
         {
-            if (pointer.item.label.equals(bin))
+            if(pointer.item.label.equals(bin))
             {
-                E value = pointer.item.grab();
-                return value;
+                break;
             }
 
             pointer = pointer.next;
+        }
+
+        if (pointer != null)
+        {
+            value = pointer.item.grab();
+            return value;
         }
 
         throw new DisorganizationException("No label exists");
@@ -134,20 +140,29 @@ public class The_Cabinet<E> implements Cabinet<E>
     public Bin<E> getBin(String bin)
     {
         Node<The_Bin<E>> pointer = head;
+        Bin<E> newBin = new The_Bin<>(bin);
 
         while (pointer != null)
         {
             if (pointer.item.label.equals(bin))
             {
-                Bin<E> newBin = pointer.item;
-                pointer.item = null;
-                return newBin;
+                break;
             }
 
             pointer = pointer.next;
         }
 
-        return new The_Bin<>("");
+        if (pointer != null)
+        {
+            while (pointer.item.hasStuff())
+            {
+                newBin.add(get(bin));
+            }
+
+            return newBin;
+        }
+
+        return new The_Bin<>();
     }
 
     /**

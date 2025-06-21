@@ -15,10 +15,15 @@ public class The_Bin<E> implements Bin<E>
     private Node<E> head;
     String label;
 
-    public The_Bin(String L)
+    public The_Bin(String tag)
     {
         head = null;
-        label = L;
+        label = tag;
+    }
+
+    public The_Bin()
+    {
+        head = null;
     }
 
     /**
@@ -27,7 +32,7 @@ public class The_Bin<E> implements Bin<E>
      * @return any single entry within the Bin
      * @throws DisorganizationException if it's empty
      */
-    
+
     public E grab()
     {
         if (head == null)
@@ -48,7 +53,7 @@ public class The_Bin<E> implements Bin<E>
      * @param entry new member for the Bin
      * @throws DisorganizationException if it's full, where applicable
      */
-    
+
     public void add(E entry)
     {
         head = new Node<>(entry, head);
@@ -59,7 +64,7 @@ public class The_Bin<E> implements Bin<E>
      *
      * @return a boolean that indicates whether the bin has something inside of it
      */
-    
+
     public boolean hasStuff()
     {
         boolean stuff = false;
