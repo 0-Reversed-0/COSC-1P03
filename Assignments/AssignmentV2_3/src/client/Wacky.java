@@ -15,6 +15,7 @@ import BasicIO.*;
  * Changes made to Wacky:
  * - Formatting - I like my scopes done this way. Also spaced things out a bit to my liking!
  * - Changed Ikea to The_Cabinet
+ * Otherwise there were no changes made to Wacky
  */
 
 public class Wacky

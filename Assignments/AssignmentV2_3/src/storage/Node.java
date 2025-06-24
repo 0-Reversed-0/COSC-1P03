@@ -7,6 +7,11 @@
 
 package storage;
 
+/**
+ * We use the node class for both the bin and the cabinet class implements
+ * @param <E> The parameter E could either be a Bin or an object that bin stores
+ */
+
 public class Node<E>
 {
     E item;

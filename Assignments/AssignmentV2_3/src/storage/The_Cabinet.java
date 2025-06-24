@@ -151,13 +151,9 @@ public class The_Cabinet<E> implements Cabinet<E>
         Node<The_Bin<E>> pointer = head;
         Bin<E> newBin = new The_Bin<>(bin);
 
-        while (pointer != null)
-        {
-            if (pointer.item.label.equals(bin))
-            {
-                break;
-            }
 
+        while (!pointer.item.label.equals(bin))
+        {
             pointer = pointer.next;
         }
 
@@ -171,7 +167,7 @@ public class The_Cabinet<E> implements Cabinet<E>
             return newBin;
         }
 
-        return new The_Bin<>();
+        return new The_Bin<>(bin);
     }
 
     /**
