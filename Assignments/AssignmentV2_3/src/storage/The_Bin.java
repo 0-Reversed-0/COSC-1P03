@@ -11,7 +11,8 @@ import java.util.Iterator;
 
 /**
  * The Bin class is a container ADT that holds an endless amount of "stuff" in it.
- * Each Bin needs to have a label that helps identify it from other bins
+ * Each bin needs to have a label that helps identify it from other bins
+ * Each bin can hold an endless amount of items
  *
  * @param <E> this parameter sets the type of object that bin will hold.
  */
@@ -24,7 +25,6 @@ public class The_Bin<E> implements Bin<E>
 
     public The_Bin(String tag)
     {
-        head = null;
         label = tag; // Every time a bin is initialized a user MUST have a label associated to the bin.
     }
 

@@ -7,17 +7,25 @@
 
 package storage;
 
+/**
+ * The Cabinet Class is a storage unit for bins.
+ * Each cabinet created needs to specify which type of objects the cabinet will hold
+ * Each cabinet can hold an infinite amount of bins
+ *
+ * @param <E> the type of items each bin will store
+ */
+
 public class The_Cabinet<E> implements Cabinet<E>
 {
 
-    Node<The_Bin<E>> head;
-    int count;
+    /*
+     * You might notice how I used the bin's implementation as the parametrized type rather than the abstract Bin class.
+     * This is because each bin uses a label
+     */
 
-    public The_Cabinet()
-    {
-        head = null;
-        count = 0;
-    }
+    Node<The_Bin<E>> head;
+
+    int count = 0; // to keep track of how many of bins are in the cabinet
 
     /**
      * Adds a single entry to the cabinet, at the specified category.
@@ -35,22 +43,22 @@ public class The_Cabinet<E> implements Cabinet<E>
         {
             if (pointer.item.label.equals(bin)) // bins cannot be full because they are linked lists that do not have a set capacity on how much values it can store, therefore the exception is never thrown.
             { // I got the .equals() function from Lab 5.
-                pointer.item.add(item);
-                break;
+                pointer.item.add(item); // add the items
+                break; // its important that we break the loop so that the pointer does not find other bins
             }
 
-            pointer = pointer.next;
+            pointer = pointer.next; // progress the pointer otherwise
         }
 
-        if (pointer == null)
+        if (pointer == null) // if the list was empty then just make a new bin of that label
         {
             The_Bin<E> newBin = new The_Bin<>(bin);
 
             newBin.add(item);
 
-            head = new Node<>(newBin, head);
+            head = new Node<>(newBin, head); // we add it to the linked list now
 
-            count++;
+            count++; // and index the count
         }
     }
 
@@ -64,9 +72,32 @@ public class The_Cabinet<E> implements Cabinet<E>
 
     public void add(Bin<E> items, String bin)
     {
-        head = new Node<>((The_Bin<E>) items, head);
+        Node<The_Bin<E>> pointer = head;
 
-        count++;
+        while (pointer != null) // We need to know if anything is in that bin label before adding to that bin or else we would be replacing the old bin with that label
+        {
+            if (pointer.item.label.equals(bin)) // so we need to search for a bin with that label first
+            {
+                break; // break if the bin exists
+            }
+
+            pointer = pointer.next; // goes until null
+        }
+
+        if (pointer == null) // if the pointer is null then there is no bin with that label
+        {
+            head = new Node<>((The_Bin<E>) items, head); // so it's safe to add that bin to cabinet
+            count++;
+        }
+        else // if pointer is not null then we successfully stopped at the bin of that label so...
+        {
+
+            for(E val: items)
+            {
+                pointer.item.add(val); // this will empty the bins contents and add it to the pre-existing bin of that instead
+            }
+
+        }
     }
 
     /**
@@ -82,7 +113,7 @@ public class The_Cabinet<E> implements Cabinet<E>
         Node<The_Bin<E>> pointer = head;
         E value;
 
-        while (pointer != null)
+        while (pointer != null) // first we need to find which bin has that label
         {
             if (pointer.item.label.equals(bin))
             {
@@ -92,13 +123,13 @@ public class The_Cabinet<E> implements Cabinet<E>
             pointer = pointer.next;
         }
 
-        if (pointer != null)
+        if (pointer != null) // if we found a label at any point then...
         {
-            value = pointer.item.grab();
+            value = pointer.item.grab(); // take that the most recently added item from the bin
             return value;
         }
 
-        throw new DisorganizationException("No label exists");
+        throw new DisorganizationException("No label exists"); // if no label ever came to be then throw an exception
     }
 
     /**
@@ -115,11 +146,11 @@ public class The_Cabinet<E> implements Cabinet<E>
         Node<The_Bin<E>> pointer = head;
         int query = 0;
 
-        while (pointer != null && pointer.item != null) // to ensure that the item within the bin is not null
+        while (pointer != null && pointer.item != null)  // we want traverse the cabinet and make sure that the item that the node is holding is not null
         {
             if (pointer.item.label.equals(bin))
             {
-                for (E val : pointer.item)
+                for (E val : pointer.item) // we use a for each loop to add iterate the count until there is no more elements
                 {
                     query++;
                 }
@@ -130,7 +161,7 @@ public class The_Cabinet<E> implements Cabinet<E>
             pointer = pointer.next;
         }
 
-        return query;
+        return query; // we can still return 0 if no label exists since technically it's true that the bin of that label holds nothing since the bin does not exist
     }
 
     /**
@@ -149,25 +180,30 @@ public class The_Cabinet<E> implements Cabinet<E>
     public Bin<E> getBin(String bin)
     {
         Node<The_Bin<E>> pointer = head;
-        Bin<E> newBin = new The_Bin<>(bin);
+        Bin<E> newBin = new The_Bin<>(bin); // this bin will inherent all the old bins contents
 
 
-        while (!pointer.item.label.equals(bin))
+        while (pointer != null) // first we locate the requested bin
         {
+            if (pointer.item.label.equals(bin))
+            {
+                break; // break if the bin exists
+            }
+
             pointer = pointer.next;
         }
 
-        if (pointer != null)
+        if (pointer != null) // if bin has been found then...
         {
             while (pointer.item.hasStuff())
             {
-                newBin.add(get(bin));
+                newBin.add(pointer.item.grab()); // empty out the bin into the replacement bin
             }
 
             return newBin;
         }
 
-        return new The_Bin<>(bin);
+        return new The_Bin<>(bin); // if the bin does not exist then we just return an empty bin of the same label
     }
 
     /**
@@ -182,10 +218,10 @@ public class The_Cabinet<E> implements Cabinet<E>
      * @return array of labels
      */
 
-    public String[] getBins()
+    public String[] getBins() // uncreative naming scheme honestly...
     {
         Node<The_Bin<E>> pointer = head;
-        String[] binLabels = new String[count];
+        String[] binLabels = new String[count]; // we set it to count since it is only thing keeping track of how many bins were added to cabinet
         int i = 0;
 
         while (pointer != null)

@@ -9,7 +9,7 @@ package storage;
 
 import java.util.Iterator;
 
-public class Iterate<E> implements Iterator<E>
+class Iterate<E> implements Iterator<E>
 {
 
     Node<E> ptr; // what we use to traverse the bin

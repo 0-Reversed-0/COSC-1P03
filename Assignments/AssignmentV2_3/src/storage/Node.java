@@ -12,7 +12,7 @@ package storage;
  * @param <E> The parameter E could either be a Bin or an object that bin stores
  */
 
-public class Node<E>
+class Node<E>
 {
     E item;
     Node<E> next;
