@@ -1,7 +1,5 @@
 import Media.*;
 
-import java.awt.*; // for colours
-
 public class Lab_6
 {
 
