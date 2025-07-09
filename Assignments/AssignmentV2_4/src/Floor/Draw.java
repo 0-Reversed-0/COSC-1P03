@@ -28,8 +28,9 @@ public class Draw
 
     /**
      * This object can only be created if the user specifics the cell size, rows, and columns
-     * @param size is measurement of how long each square cell is on one side
-     * @param rows is the amount of rows of cells will the floor plan have
+     *
+     * @param size    is measurement of how long each square cell is on one side
+     * @param rows    is the amount of rows of cells will the floor plan have
      * @param columns is the amount of columns of cells will the floor plan have
      */
 
@@ -59,9 +60,9 @@ public class Draw
         T.penUp();
         T.moveTo(getCellX(X1), getCellY(Y1));
 
-        for (int y = getCellY(Y1) + 1; y < getCellY(Y2); y++)
+        for (int y = getCellY(Y1) + 1; y < getCellY(Y2) - 1; y++)
         {
-            for (int x = getCellX(X1) + 1; x < getCellX(X2); x++) // The +1's are to prevent overlapping over walls.
+            for (int x = getCellX(X1) + 1; x < getCellX(X2) - 1; x++) // The +/- 1's are to prevent overlapping over walls.
             {
                 T.penDown();
                 T.moveTo(x, y); // We approach paint a room by slowly going through each coordinate one by one and moving to them which slowly fills the room
