@@ -65,24 +65,24 @@ public class Floor_Plan
         {
             int rand = randomCell(endX - 1, startX + 1);
 
-            floorCreation(rand, endY, startX, startY);
-            //floorCreation(endX, endY, rand, startY);
             draw.createWall_V(startY, endY, rand);
+            floorCreation(rand, endY, startX, startY);
+            floorCreation(endX, endY, rand, startY);
 
         } else if (endX < endY) // if the floor we are dealing with is too tall then we would cut horizontally
         {
             int rand = randomCell(endX - 1, startX + 1);
 
-            floorCreation(endX, rand, startX, startY);
-            //floorCreation(endX, endY, startX, rand);
             draw.createWall_H(startX, endX, rand);
+            floorCreation(endX, rand, startX, startY);
+            floorCreation(endX, endY, startX, rand);
 
         } else if (endX > endY) // if the floor we are dealing with is too wide then we would cut it vertically
         {
             int rand = randomCell(endX, startX);
 
             floorCreation(rand, endY, startX, startY);
-            //floorCreation(endX, endY, rand, startY);
+            floorCreation(endX, endY, rand, startY);
             draw.createWall_V(startY, endY, rand);
         }
     }
