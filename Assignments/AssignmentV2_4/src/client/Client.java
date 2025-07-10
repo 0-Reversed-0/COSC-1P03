@@ -19,12 +19,11 @@ import java.util.Scanner; // I hate BasicIO so much, so I'm using Scanner instea
 
 public class Client
 {
-
     Scanner input = new Scanner(System.in);
 
     public Client()
     {
-        Floor_Plan floor = new Floor_Plan(30, 10, 10);
+        Floor_Plan floor = new Floor_Plan(60, 5, 5);
     }
 
     public static void main(String[] args)
