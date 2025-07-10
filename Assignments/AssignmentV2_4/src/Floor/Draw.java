@@ -13,6 +13,7 @@ import java.awt.*;
 
 /**
  * The Draw class does all the drawing for the recursive class
+ * This class is package private since the Floor_Plan should be the only class commanding the Draw class to draw
  * This class handles the grid/cell system for the recursive class
  * It also handles creating horizontal and vertical walls
  * It can also paint entire cells if the user requests to do so
@@ -29,7 +30,7 @@ class Draw
     /**
      * This object can only be created if the user specifics the cell size, rows, and columns
      *
-     * @param size    is measurement of how long each square cell is on one side
+     * @param size    is measurement of how long and wide each square cell is on one side
      * @param rows    is the amount of rows of cells will the floor plan have
      * @param columns is the amount of columns of cells will the floor plan have
      */

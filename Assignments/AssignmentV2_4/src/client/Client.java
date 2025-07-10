@@ -11,6 +11,12 @@ import Floor.*;
 
 import java.util.Scanner; // I hate BasicIO so much, so I'm using Scanner instead
 
+/**
+ * The client class is the only executable class in the entire project
+ * It's main purpose is to test the capabilities of the Floor_Plan class
+ * The testing will be up to the user via inputting different row : columns ratios and different values of the cell size
+ */
+
 public class Client
 {
 
