@@ -24,7 +24,7 @@ public class Client
 
     public Client()
     {
-        Floor_Plan floor = new Floor_Plan(30, 10, 10);
+        Floor_Plan floor = new Floor_Plan(30, 20, 20);
     }
 
     public static void main(String[] args)

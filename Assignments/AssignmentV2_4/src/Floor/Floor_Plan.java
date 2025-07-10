@@ -33,7 +33,7 @@ public class Floor_Plan
     {
         draw = new Draw(cellSize, rows, cols);
 
-        floorCreation(rows, cols, 0 , 0);
+        floorCreation(rows, cols, 0, 0);
     }
 
     /**
@@ -52,7 +52,7 @@ public class Floor_Plan
         {
             int paintChance = randomPercent();
 
-            if (paintChance == paint) // check if we want to paint this section
+            if (paintChance == 75) // check if we want to paint this section
             {
                 draw.paint(lastX, lastY, currentX, currentY);
             }
@@ -63,19 +63,25 @@ public class Floor_Plan
         // Recursive solution:
         if (currentX == currentY) // if we have a perfect square floor then we just cut it with a vertical line
         {
-            draw.createWall_V(lastY, currentY, randomCell(currentX, lastX));
+            int rand = randomCell(currentX-1, lastX);
 
-            floorCreation(currentX, currentY, lastX, lastY);
-        } else if (currentX > currentY)
+            draw.createWall_V(lastY, currentY, rand);
+
+            floorCreation(rand, currentY, lastX, lastY);
+        } else if (currentX < currentY) // if the floor we are dealing with is too tall then we would cut horizontally
         {
-            draw.createWall_V(lastY, currentY, randomCell(currentX, lastX));
+            int rand = randomCell(currentY-1, lastY);
 
-            floorCreation(currentX, currentY, lastX, lastY);
-        } else if (currentX < currentY)
+            draw.createWall_H(lastX, currentX, rand);
+
+            floorCreation(currentX, rand, lastX, lastY);
+        } else if (currentX > currentY) // if the floor we are dealing with is too wide then we would cut it vertically
         {
-            draw.createWall_H(lastX, currentX, randomCell(currentY, currentX));
+            int rand = randomCell(currentX-1, lastX);
 
-            floorCreation(currentX, currentY, lastX, lastY);
+            draw.createWall_V(lastY, currentY, rand);
+
+            floorCreation(rand, currentY, lastX, lastY);
         }
     }
 
