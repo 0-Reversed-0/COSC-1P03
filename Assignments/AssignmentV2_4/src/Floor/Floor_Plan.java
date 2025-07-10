@@ -47,25 +47,30 @@ public class Floor_Plan
     {
         int stopChance = randomPercent();
 
-        if (stopChance == stop || (rows <= cutoff && cols <= cutoff)) // if the stop chance occurs or if rows/cols is under the cutoff
+        int lastX = 0;
+        int lastY = 0;
+
+        // Base case:
+        if (stopChance == stop || (rows <= cutoff && cols <= cutoff)) // if the stop chance occurs or if rows/cols is under the cutoff then...
         {
             int paintChance = randomPercent();
 
-            if (paintChance == paint)
+            if (paintChance == paint) // check if we want to paint this section
             {
-                draw.paint(0, 0, rows, cols); // fixme
+                draw.paint(lastX, lastY, rows, cols);
             }
 
-            return;
+            return; // then stop the recursion
         }
 
+        // Recursive solution:
         if (rows == cols)
         {
-            draw.createWall_V(0, 0, 0); // fixme
+            draw.createWall_V(lastY, cols, 0); // fixme
             floorCreation(0, 0); // fixme
         } else if (rows > cols)
         {
-            draw.createWall_V(0, 0, 0); // fixme
+            draw.createWall_V(lastY, rows, 0); // fixme
             floorCreation(0, 0); // fixme
         } else if (rows < cols)
         {
