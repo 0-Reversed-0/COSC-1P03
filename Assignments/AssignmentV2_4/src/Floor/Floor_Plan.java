@@ -52,7 +52,7 @@ public class Floor_Plan
         {
             int paintChance = randomPercent();
 
-            if (paintChance == 75) // check if we want to paint this section
+            if (paintChance == paint) // check if we want to paint this section
             {
                 draw.paint(lastX, lastY, currentX, currentY);
             }
