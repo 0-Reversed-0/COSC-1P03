@@ -17,9 +17,7 @@ public class Floor_Plan
 {
 
     private Draw draw;
-    private final int cutoff = 3; // We hardcode these values since we want to have these conditions static regardless of what passed in the constructor 
-    private final int stop = 5;
-    private final int paint = 20;
+    private final int cutoff = 3; // We hardcode these values since we want to have these conditions static regardless of what passed in the constructor
 
     /**
      * Creates a new object to draw everything needed and immediately runs the recursive solution once values are passed
@@ -39,49 +37,53 @@ public class Floor_Plan
     /**
      * Recursive method that handles the logistics behind painting, creating walls, where to put walls, and when to stop
      *
-     * @param currentX the amount of horizontal cells on the canvas
-     * @param currentY the amount of vertical cells on the canvas
+     * @param endX   the amount of horizontal cells left in the recursive solution (the arbitrary granularity)
+     * @param endY   the amount of vertical cells left in the recursive solution
+     * @param startX the start of where the cells will be in the X axis
+     * @param startY the start of where the cells will be in the Y axis
      */
 
-    private void floorCreation(int currentX, int currentY, int lastX, int lastY)
+    private void floorCreation(int endX, int endY, int startX, int startY)
     {
-        int stopChance = randomPercent();
+        int stopChance = randomPercent(2);
 
         // Base case:
-        if (stopChance == stop || (currentX <= cutoff && currentY <= cutoff)) // if the stop chance occurs or if rows/cols is under the cutoff then...
+        if (stopChance == 5 || (endX <= cutoff & endY <= cutoff)) // if the stop chance occurs or if rows/cols is under the cutoff then...
         {
-            int paintChance = randomPercent();
+            int paintChance = randomPercent(10);
 
-            if (paintChance == paint) // check if we want to paint this section
+            if (paintChance == 1) // check if we want to paint this section
             {
-                draw.paint(lastX, lastY, currentX, currentY);
+                draw.paint(startX, startY, endX, endY);
             }
 
             return; // then stop the recursion
         }
 
         // Recursive solution:
-        if (currentX == currentY) // if we have a perfect square floor then we just cut it with a vertical line
+        if (endX == endY) // if we have a perfect square floor then we just cut it with a vertical line
         {
-            int rand = randomCell(currentX-1, lastX);
+            int rand = randomCell(endX - 1, startX + 1);
 
-            draw.createWall_V(lastY, currentY, rand);
+            floorCreation(rand, endY, startX, startY);
+            //floorCreation(endX, endY, rand, startY);
+            draw.createWall_V(startY, endY, rand);
 
-            floorCreation(rand, currentY, lastX, lastY);
-        } else if (currentX < currentY) // if the floor we are dealing with is too tall then we would cut horizontally
+        } else if (endX < endY) // if the floor we are dealing with is too tall then we would cut horizontally
         {
-            int rand = randomCell(currentY-1, lastY);
+            int rand = randomCell(endX - 1, startX + 1);
 
-            draw.createWall_H(lastX, currentX, rand);
+            floorCreation(endX, rand, startX, startY);
+            //floorCreation(endX, endY, startX, rand);
+            draw.createWall_H(startX, endX, rand);
 
-            floorCreation(currentX, rand, lastX, lastY);
-        } else if (currentX > currentY) // if the floor we are dealing with is too wide then we would cut it vertically
+        } else if (endX > endY) // if the floor we are dealing with is too wide then we would cut it vertically
         {
-            int rand = randomCell(currentX-1, lastX);
+            int rand = randomCell(endX, startX);
 
-            draw.createWall_V(lastY, currentY, rand);
-
-            floorCreation(rand, currentY, lastX, lastY);
+            floorCreation(rand, endY, startX, startY);
+            //floorCreation(endX, endY, rand, startY);
+            draw.createWall_V(startY, endY, rand);
         }
     }
 
@@ -95,7 +97,7 @@ public class Floor_Plan
 
     private int randomCell(int max, int min)
     {
-        return (int) ((max - min + 1) * Math.random() + min);
+        return (int) ((max - min) * Math.random() + min);
     }
 
     /**
@@ -104,8 +106,8 @@ public class Floor_Plan
      * @return a random percentage
      */
 
-    private int randomPercent()
+    private int randomPercent(int factor)
     {
-        return (int) (100 * Math.random());
+        return (int) (((double) 100 / factor) * Math.random());
     }
 }
