@@ -18,7 +18,7 @@ import java.awt.*;
  * It can also paint entire cells if the user requests to do so
  */
 
-public class Draw
+class Draw
 {
     private int cellSize;
     private int canvasWidth;
