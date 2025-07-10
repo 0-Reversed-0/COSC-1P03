@@ -79,11 +79,11 @@ public class Floor_Plan
 
         } else if (endX > endY) // if the floor we are dealing with is too wide then we would cut it vertically
         {
-            int rand = randomCell(endX, startX);
+            int rand = randomCell(endX - 1, startX + 1);
 
+            draw.createWall_V(startY, endY, rand);
             floorCreation(rand, endY, startX, startY);
             floorCreation(endX, endY, rand, startY);
-            draw.createWall_V(startY, endY, rand);
         }
     }
 
