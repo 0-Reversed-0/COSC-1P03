@@ -48,8 +48,11 @@ public class Floor_Plan
     {
         int stopChance = randomPercent(2);
 
+        int width = endX - startX;
+        int height = endY - startY;
+
         // Base case:
-        if (stopChance == 3 || (endX - startX <= cutoff & endY - startY <= cutoff)) // if the stop chance occurs or if rows/cols is under the cutoff then...
+        if (stopChance == 3 || ((width <= cutoff) & (height <= cutoff))) // if the stop chance occurs or if rows/cols is under the cutoff then...
         {
             draw.paint(startX, startY, endX, endY);
 
@@ -75,7 +78,6 @@ public class Floor_Plan
             floorCreation(endX, randY, startX, startY);
             floorCreation(startX, startY, endX, randY);
         }
-
     }
 
     /**
