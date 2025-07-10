@@ -33,50 +33,63 @@ public class Floor_Plan
     {
         draw = new Draw(cellSize, rows, cols);
 
-        floorCreation(rows, cols);
+        floorCreation(rows, cols, 0 , 0);
     }
 
     /**
      * Recursive method that handles the logistics behind painting, creating walls, where to put walls, and when to stop
      *
-     * @param rows the amount of horizontal cells on the canvas
-     * @param cols the amount of vertical cells on the canvas
+     * @param currentX the amount of horizontal cells on the canvas
+     * @param currentY the amount of vertical cells on the canvas
      */
 
-    private void floorCreation(int rows, int cols)
+    private void floorCreation(int currentX, int currentY, int lastX, int lastY)
     {
         int stopChance = randomPercent();
 
-        int lastX = 0;
-        int lastY = 0;
-
         // Base case:
-        if (stopChance == stop || (rows <= cutoff && cols <= cutoff)) // if the stop chance occurs or if rows/cols is under the cutoff then...
+        if (stopChance == stop || (currentX <= cutoff && currentY <= cutoff)) // if the stop chance occurs or if rows/cols is under the cutoff then...
         {
             int paintChance = randomPercent();
 
             if (paintChance == paint) // check if we want to paint this section
             {
-                draw.paint(lastX, lastY, rows, cols);
+                draw.paint(lastX, lastY, currentX, currentY);
             }
 
             return; // then stop the recursion
         }
 
         // Recursive solution:
-        if (rows == cols)
+        if (currentX == currentY) // if we have a perfect square floor then we just cut it with a vertical line
         {
-            draw.createWall_V(lastY, cols, 0); // fixme
-            floorCreation(0, 0); // fixme
-        } else if (rows > cols)
+            draw.createWall_V(lastY, currentY, randomCell(currentX, lastX));
+
+            floorCreation(currentX, currentY, lastX, lastY);
+        } else if (currentX > currentY)
         {
-            draw.createWall_V(lastY, rows, 0); // fixme
-            floorCreation(0, 0); // fixme
-        } else if (rows < cols)
+            draw.createWall_V(lastY, currentY, randomCell(currentX, lastX));
+
+            floorCreation(currentX, currentY, lastX, lastY);
+        } else if (currentX < currentY)
         {
-            draw.createWall_H(0, 0, 0); // fixme
-            floorCreation(0, 0); // fixme
+            draw.createWall_H(lastX, currentX, randomCell(currentY, currentX));
+
+            floorCreation(currentX, currentY, lastX, lastY);
         }
+    }
+
+    /**
+     * A method to get a cell to draw a wall on
+     *
+     * @param max is the further the cell can go
+     * @param min is the least the cell can go
+     * @return a random cell
+     */
+
+    private int randomCell(int max, int min)
+    {
+        return (int) ((max - min + 1) * Math.random() + min);
     }
 
     /**
