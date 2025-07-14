@@ -8,6 +8,8 @@ public class Main
     {
         int a = factorial(19);
         System.out.println(a);
+
+        num(10);
     }
 
     int factorial(int n)
@@ -18,6 +20,18 @@ public class Main
         }
 
         return n * factorial(n - 1); // this would be the guaranteed progress to the 1 since n has to decrement
+    }
+
+    void num(int n)
+    {
+        if (n == 0)
+        {
+            return;
+        }
+
+        System.out.println(n);
+
+        num(n-1);
     }
 
     public static void main(String[] args)
