@@ -1,8 +1,10 @@
-package Test; /**
- * This Lecture goes HIGHLY in depth for Linked Lists
- */
+package Test;
 
 import List.*;
+
+/**
+ * This Lecture goes HIGHLY in depth for Linked Lists
+ */
 
 public class LinkedList_Tester
 {
