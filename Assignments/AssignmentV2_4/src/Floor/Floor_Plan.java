@@ -1,6 +1,5 @@
 /**
- * Author: Arhum Ahmed Khan
- * Student ID: 8074114
+ * Author: Reversed_0
  * Course: COSC 1P03 (Spring Term)
  * Title: The Worst Floor Plan
  */
