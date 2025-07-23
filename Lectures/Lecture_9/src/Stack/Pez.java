@@ -45,19 +45,4 @@ public interface Pez
      */
 
     boolean isEmpty();
-
-    /**
-     * Checks if the dispenser is full
-     *
-     * @return false or true
-     */
-
-    boolean isFull();
-
-    /**
-     * @return how many values in the dispenser
-     * @throws PezEmpty if empty
-     */
-
-    int howMany();
 }

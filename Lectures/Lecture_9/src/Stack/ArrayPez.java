@@ -78,32 +78,4 @@ public class ArrayPez implements Pez
 
         return isEmpty;
     }
-
-    /**
-     * Checks if the dispenser is full
-     *
-     * @return false or true
-     */
-
-    public boolean isFull()
-    {
-        boolean isFull = false;
-
-        if (count == dispenser.length)
-        {
-            isFull = true;
-        }
-
-        return isFull;
-    }
-
-    /**
-     * @return how many values in the dispenser
-     * @throws PezEmpty if empty
-     */
-
-    public int howMany()
-    {
-        return count;
-    }
 }
