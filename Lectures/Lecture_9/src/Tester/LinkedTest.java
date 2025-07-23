@@ -32,7 +32,7 @@ public class LinkedTest
 
     void testPush()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++) // will be inputted from 0-9
         {
             Lstack.push(i);
         }
