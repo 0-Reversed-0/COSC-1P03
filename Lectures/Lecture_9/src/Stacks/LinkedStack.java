@@ -1,14 +1,15 @@
 package Stacks;
 
 /**
- * A stack is an ADT that stores temporarily.
- * It stores data via using last in first out procedures.
- * Stacks can only show the last value stored and nothing else
- * A stack only contains about 4 methods being push, pop, peek, and isEmpty (would be funny if I started that with a p too)
+ * This instance of a Stack will use linked lists to hold its value since that is pretty dang easy
+ * We will only have a head and make the list sequentially linked
  */
 
-public interface Stack
+public class LinkedStack implements Stack
 {
+
+    Node head;
+
     /**
      * A push in context of a stack is how an item is added to a stack
      * Pushes work in a last in first out fashion. How this would look like is:
@@ -18,8 +19,11 @@ public interface Stack
      *
      * @param item This will be the item inputted into the stack
      */
-
-    void push(int item);
+    
+    public void push(int item) //essentially work as an add() method in a linked list
+    {
+        head = new Node(item, head); // it is as simple as making a linked list
+    }
 
     /**
      * A pop in content of a stack how a stack is able to remove its content and be able to use those at the same time
@@ -31,8 +35,19 @@ public interface Stack
      * @return an integer item in the stack
      * @throws StackEmptyException if the stack has run out of contents
      */
+    
+    public int pop() // this is literally just going to be a remove function in a linked list
+    {
+        if(head == null) // First we check if the list is empty
+        {
+            throw new StackEmptyException("Cannot remove any more empty for the Stack is empty");
+        }
 
-    int pop();
+        int item = head.item; // we want to retrieve the current head's item before we remove the head
+        head = head.next; // once retrieved then we can decapitate the linked list
+
+        return item;
+    }
 
     /**
      * Peeking in a stack simply does what its name suggests.
@@ -46,8 +61,16 @@ public interface Stack
      * @return the next item to be removed in the stack within the stack.
      * @throws StackEmptyException if the stack is empty (this should be obvious)
      */
+    
+    public int peek() // pretty simple as well
+    {
+        if (head == null)
+        {
+            throw new StackEmptyException("The stack is empty; nothing to peek at");
+        }
 
-    int peek();
+        return head.item; // just return the current head's item;
+    }
 
     /**
      * This is a method to check if the stack is empty so we could avoid that pesky exception we made. (self-inflicted problem I'm aware)
@@ -55,6 +78,16 @@ public interface Stack
      *
      * @return a boolean value according to whether the stack is empty. Empty -> true | Full -> false.
      */
+    
+    public boolean isEmpty()
+    {
+        boolean empty = false;
 
-    boolean isEmpty();
+        if (head == null) // if the head is empty the linked list is empty
+        {
+            empty = true;
+        }
+
+        return empty;
+    }
 }
