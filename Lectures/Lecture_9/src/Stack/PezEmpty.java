@@ -1,4 +1,4 @@
-package pez;
+package Stack;
 
 public class PezEmpty extends RuntimeException
 {

@@ -1,4 +1,4 @@
-package pez;
+package Stack;
 
 /**
  * A general container for holding Pez candies
@@ -14,32 +14,32 @@ public interface Pez
     /**
      * A push in a stack is essentially adding to our stack
      *
-     * @param c the colored pez that is being added to the dispenser
+     * @param c the colored Stack that is being added to the dispenser
      * @throws PezFull if full
      */
 
     void push(char c);
 
     /**
-     * removes a pez and gives us what the pez is
+     * removes a Stack and gives us what the Stack is
      *
-     * @return the pez
+     * @return the Stack
      * @throws PezEmpty if empty
      */
 
     char pop();
 
     /**
-     * shows us what pez is going to be removed
+     * shows us what Stack is going to be removed
      *
-     * @return the pez that will remove
+     * @return the Stack that will remove
      * @throws PezEmpty if empty
      */
 
     char top();
 
     /**
-     * Checks if the pez dispenser is empty
+     * Checks if the Stack dispenser is empty
      *
      * @return false or true
      */

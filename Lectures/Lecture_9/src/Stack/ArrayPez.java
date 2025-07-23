@@ -1,4 +1,4 @@
-package pez;
+package Stack;
 
 public class ArrayPez implements Pez
 {
@@ -18,27 +18,20 @@ public class ArrayPez implements Pez
     }
 
     /**
-     * adds a pez to pez dispenser
+     * adds a Stack to Stack dispenser
      *
-     * @param c the colored pez that is being added to the dispenser
-     * @throws PezFull if full
+     * @param c the colored Stack that is being added to the dispenser
      */
 
     public void push(char c)
     {
-        if (count >= dispenser.length)
-        {
-            throw new PezFull("Its full dude");
-        } else
-        {
-            dispenser[count++] = c;
-        }
+        dispenser[count++] = c;
     }
 
     /**
-     * removes a pez and gives us what the pez is
+     * removes a Stack and gives us what the Stack is
      *
-     * @return the pez
+     * @return the Stack
      * @throws PezEmpty if empty
      */
 
@@ -53,9 +46,9 @@ public class ArrayPez implements Pez
     }
 
     /**
-     * shows us what pez is going to be removed
+     * shows us what Stack is going to be removed
      *
-     * @return the pez that will remove
+     * @return the Stack that will remove
      * @throws PezEmpty if empty
      */
 
@@ -69,7 +62,7 @@ public class ArrayPez implements Pez
     }
 
     /**
-     * Checks if the pez dispenser is empty
+     * Checks if the Stack dispenser is empty
      *
      * @return false or true
      */
@@ -96,7 +89,7 @@ public class ArrayPez implements Pez
     {
         boolean isFull = false;
 
-        if(count == dispenser.length)
+        if (count == dispenser.length)
         {
             isFull = true;
         }
