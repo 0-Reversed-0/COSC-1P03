@@ -3,6 +3,11 @@ package Stacks;
 /**
  * This instance of a Stack will use linked lists to hold its value since that is pretty dang easy
  * We will only have a head and make the list sequentially linked
+ * Since this ADT we don't ACTUALLY have to add to a tail constantly and retrieve from that tail.
+ * We just need to make sure that it holds the PROPERTIES of a last in first out data structure.
+ * Remember ADTs abstract how the data structure works and just tells you how to use one.
+ * So as long as we add and remove to the head it will still function like a Stack even if it's not literally being one.
+ * One nice thing about Stacks is that all its operations are Big O notation of O(1) so they are the most optimized data structure that we've dealt with so far.
  */
 
 public class LinkedStack implements Stack

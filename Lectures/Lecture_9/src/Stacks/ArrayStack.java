@@ -1,12 +1,19 @@
 package Stacks;
 
+/**
+ * Here we want to make a Stack using arrays instead of linked list.
+ * The Big O cost of this will also be O(1).
+ * Again like the linked list stack be aware that this is an ADT and how we implement
+ * It does not matter as long as it follows the rules of how a stack WORKS.
+ */
+
 public class ArrayStack implements Stack
 {
 
     private int[] array; // in an array stack we use obviously use an array (Note: we have to approach this differently because of that)
     private int index; // the index is how we determine where the item will be stored
 
-    public ArrayStack(int capacity) // notice how we have a constructor here
+    public ArrayStack(int capacity) // notice how we have a constructor here,
     {
         array = new int[capacity]; // since arrays aren't infinite in size we have to the user set the size of the array
     }
