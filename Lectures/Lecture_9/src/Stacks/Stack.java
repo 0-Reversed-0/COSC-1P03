@@ -5,6 +5,7 @@ package Stacks;
  * It stores data via using last in first out procedures.
  * Stacks can only show the last value stored and nothing else
  * A stack only contains about 4 methods being push, pop, peek, and isEmpty (would be funny if I started that with a p too)
+ * This stack in particular will hold integer (Note this for when we get into generics!!!)
  */
 
 public interface Stack
