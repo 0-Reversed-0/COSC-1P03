@@ -1,14 +1,14 @@
 package Stacks;
 
-/**
- * This instance of a Stack will use linked lists to hold its value since that is pretty dang easy
- * We will only have a head and make the list sequentially linked
- */
-
-public class LinkedStack implements Stack
+public class ArrayStack implements Stack
 {
 
-    private Node head;
+    private int[] array;
+
+    public ArrayStack(int capacity)
+    {
+        array = new int[capacity];
+    }
 
     /**
      * A push in context of a stack is how an item is added to a stack
@@ -20,9 +20,9 @@ public class LinkedStack implements Stack
      * @param item This will be the item inputted into the stack
      */
     
-    public void push(int item) //essentially work as an add() method in a linked list
+    public void push(int item)
     {
-        head = new Node(item, head); // it is as simple as making a linked list
+        
     }
 
     /**
@@ -36,17 +36,9 @@ public class LinkedStack implements Stack
      * @throws StackEmptyException if the stack has run out of contents
      */
     
-    public int pop() // this is literally just going to be a remove function in a linked list
+    public int pop()
     {
-        if(head == null) // First we check if the list is empty
-        {
-            throw new StackEmptyException("Cannot remove any more empty for the Stack is empty");
-        }
-
-        int item = head.item; // we want to retrieve the current head's item before we remove the head
-        head = head.next; // once retrieved then we can decapitate the linked list
-
-        return item;
+        return 0;
     }
 
     /**
@@ -62,14 +54,9 @@ public class LinkedStack implements Stack
      * @throws StackEmptyException if the stack is empty (this should be obvious)
      */
     
-    public int peek() // pretty simple as well
+    public int peek()
     {
-        if (head == null)
-        {
-            throw new StackEmptyException("The stack is empty; nothing to peek at");
-        }
-
-        return head.item; // just return the current head's item;
+        return 0;
     }
 
     /**
@@ -81,13 +68,6 @@ public class LinkedStack implements Stack
     
     public boolean isEmpty()
     {
-        boolean empty = false;
-
-        if (head == null) // if the head is empty the linked list is empty
-        {
-            empty = true;
-        }
-
-        return empty;
+        return false;
     }
 }
