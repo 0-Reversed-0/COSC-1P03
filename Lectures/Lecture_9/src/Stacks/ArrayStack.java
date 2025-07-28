@@ -91,7 +91,9 @@ public class ArrayStack implements Stack
 
         index--;
         int item = array[index];
-        array[index] = 0; // this 0 would be null if it was an object but since an integer cannot be define by null then we have to make it 0
+        array[index] = 0; // this 0 would be null if it was an object but since an integer cannot be defined by null then we have to make it 0
+
+        // Take note of the nullification that cannot be done as of right now as it is important for generics later one :)
 
         return item;
     }
