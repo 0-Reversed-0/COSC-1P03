@@ -11,7 +11,7 @@ public class ArrayStack implements Stack
 {
 
     private int[] array; // in an array stack we use obviously use an array (Note: we have to approach this differently because of that)
-    private int index; // the index is how we determine where the item will be stored
+    private int index = 0; // the index is how we determine where the item will be stored
 
     public ArrayStack(int capacity) // notice how we have a constructor here,
     {
@@ -28,7 +28,7 @@ public class ArrayStack implements Stack
      * @param item This will be the item inputted into the stack
      * @throws StackFullException if the stack's array is full since that is actually a problem here
      */
-    
+
     public void push(int item)
     {
         if (isFull())
@@ -36,21 +36,22 @@ public class ArrayStack implements Stack
             throw new StackFullException("Stack is at capacity");
         }
 
-        array[index] = item; // first we want to add the item to the array at the CURRENT index before it is ever increased
-
         /*
          * How this works is like this;
          * push(3);
          *
          * What goes on internally:
          * index = 0; capacity = 4; item = 3;
-         * | 3 | _ | _ | _ |
+         * | 3 (index here) | _ | _ | _ |
          * index = 1;
+         * | 3 | (index here) | _ | _ |
          *
-         * We always store at the index before updating it and we revolve our code around this concept
+         * We always store at the index before updating it, and we revolve our code around this concept
+         * The index placement is important where the index is first used THEN is incremented
          */
 
-        index++; // we now ready the index to always be front of the stack's "top value".
+        array[index] = item; // Use the current index
+        index++; // Then index to let it be in front
     }
 
     /**
@@ -63,19 +64,36 @@ public class ArrayStack implements Stack
      * @return an integer item in the stack
      * @throws StackEmptyException if the stack has run out of contents
      */
-    
+
     public int pop()
     {
-        if(isEmpty())
+        if (isEmpty()) // we need to check if it is empty before ever popping any value to prevent index out of bounds
         {
             throw new StackEmptyException("Stack is empty");
         }
 
-        index--; // NOW we first have to get to the actual top index since our push always goes +1 from the top value
-        int item = array[index]; // once there we retrieve the item from the array before we "nullify" the item within the index
-        array[index] = 0; // finally before returning just null out the value (or in this case just put 0)
+        /*
+         * Now when removing items then we handle it a little differently.
+         * We want to first move the index,
+         * Then return the item,
+         * And finally null out the value.
+         *
+         * What goes on internally:
+         * int value = pop();
+         *
+         * index = 3, capacity = 5;
+         * | 3 | 4 | 7 | _ (index here) | _ |
+         * index--; index = 2;
+         * | 3 | 4 | 7 (index here) | _ |
+         * arr[index] = null;
+         * | 3 | 4 | _ (index here) | _ |
+         */
 
-        return item; // now we can safely return the item
+        index--;
+        int item = array[index];
+        array[index] = 0; // this 0 would be null if it was an object but since an integer cannot be define by null then we have to make it 0
+
+        return item;
     }
 
     /**
@@ -90,7 +108,7 @@ public class ArrayStack implements Stack
      * @return the next item to be removed in the stack within the stack.
      * @throws StackEmptyException if the stack is empty (this should be obvious)
      */
-    
+
     public int peek()
     {
         if (isEmpty())
@@ -98,7 +116,7 @@ public class ArrayStack implements Stack
             throw new StackEmptyException("Stack is empty");
         }
 
-        return array[index-1]; // here we can just return the top value
+        return array[index - 1]; // here we can just return the top value
     }
 
     /**
@@ -107,18 +125,30 @@ public class ArrayStack implements Stack
      *
      * @return a boolean value according to whether the stack is empty. Empty -> true | Full -> false.
      */
-    
+
     public boolean isEmpty()
     {
         boolean empty = false;
 
-        if (index == -1) // you can pop every value to the 0th index. Due to this that would leave the index can be at -1.
+        /*
+         * For us our very last index will be 0 so whenever the index is 0 it is empty and can no longer be popped
+         * This works in emptying out the entire stack because once popping the last value the index would be 1
+         * This because we made it so that the uppermost value will always have an index above the current index
+         */
+
+        if (index == 0)
         {
             empty = true;
         }
 
         return empty;
     }
+
+    /**
+     * Since we are making a Stack using arrays then we must also make a checker than can check if the stack is full or not
+     *
+     * @return a boolean value according to whether the stack is empty. Empty -> false | Full -> true.
+     */
 
     public boolean isFull()
     {
