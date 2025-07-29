@@ -2,7 +2,7 @@ package Stacks;
 
 /**
  * Here we want to make a Stack using arrays instead of linked list.
- * The Big O cost of this will also be O(1).
+ * The Big O cost of this will also be O(1) meaning that every function of a Stack is constant/
  * Again like the linked list stack be aware that this is an ADT and how we implement
  * It does not matter as long as it follows the rules of how a stack WORKS.
  */
