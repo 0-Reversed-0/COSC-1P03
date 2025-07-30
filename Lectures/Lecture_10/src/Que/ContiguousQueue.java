@@ -20,7 +20,7 @@ public class ContiguousQueue implements Queue
      * Adds the specified memeber to the end of the queue
      *
      * @param s a new string
-     * @throws OverflowException
+     * @throws QueueFullException
      */
     
     public void add(String s)
@@ -33,7 +33,7 @@ public class ContiguousQueue implements Queue
 
         if(count >= arr.length) //checks for space
         {
-            throw new OverflowException();
+            throw new QueueFullException();
         }
 
         count++;
@@ -47,7 +47,7 @@ public class ContiguousQueue implements Queue
      * Removes the first member of the queue
      *
      * @return a string
-     * @throws UnderflowException
+     * @throws QueueEmptyException
      */
     
     public String remove()
@@ -60,7 +60,7 @@ public class ContiguousQueue implements Queue
 
         if (count < 1)
         {
-            throw new UnderflowException();
+            throw new QueueEmptyException();
         }
 
         String item = arr[front]; //grab the item before the item gets nulled out
@@ -83,7 +83,7 @@ public class ContiguousQueue implements Queue
     {
         if(count < 1)
         {
-            throw new UnderflowException();
+            throw new QueueEmptyException();
         }
 
         return arr[front];
@@ -93,11 +93,16 @@ public class ContiguousQueue implements Queue
      * How many elements are in the queue
      *
      * @return the amount in the queue
-     * @throws UnderflowException
+     * @throws QueueEmptyException
      */
     
-    public int count()
+    public int size()
     {
         return count;
+    }
+
+    public boolean isEmpty()
+    {
+        return false;
     }
 }
