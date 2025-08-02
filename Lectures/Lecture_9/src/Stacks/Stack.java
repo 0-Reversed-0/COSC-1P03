@@ -1,3 +1,10 @@
+/**
+ * This lecture fully covers what a Stack is,
+ * properties of a stack,
+ * how to implement a stack using arrays and linked lists,
+ * and tips and tricks along the way. Enjoy!
+ */
+
 package Stacks;
 
 /**
