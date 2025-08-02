@@ -12,7 +12,7 @@ public class LinkedQueue implements Queue
      * @param s A string item to be added to the Queue
      */
 
-    public void add(String s)
+    public void add(String s) // The add fuc
     {
         if (tail == null)
         {
@@ -42,6 +42,12 @@ public class LinkedQueue implements Queue
         if (isEmpty())
         {
             throw new QueueEmptyException();
+        } else if (head == tail | head == null)
+        {
+            String item = tail.item;
+            tail = null;
+
+            return item;
         }
 
         String item = head.item;
@@ -59,19 +65,15 @@ public class LinkedQueue implements Queue
 
     public String front()
     {
-        String item;
-
         if (isEmpty())
         {
             throw new QueueEmptyException();
         } else if (head == null)
         {
-            item = tail.item;
+            return tail.item;
         }
 
-        item = head.item;
-
-        return item;
+        return head.item;
     }
 
     /**
@@ -111,13 +113,6 @@ public class LinkedQueue implements Queue
 
     public boolean isEmpty()
     {
-        boolean empty = false;
-
-        if (tail == null)
-        {
-            empty = true;
-        }
-
-        return empty;
+        return tail == null;
     }
 }

@@ -8,7 +8,18 @@ public class LinkedTest
 
     LinkedTest()
     {
+        fill();
+        System.out.println(LQueue.size());
         System.out.println(LQueue.front());
+        emptyOut();
+    }
+
+    private void emptyOut()
+    {
+        while (!LQueue.isEmpty())
+        {
+            System.out.println("Removed " + LQueue.remove() + " from the Queue");
+        }
     }
 
     private void fill()
@@ -17,6 +28,7 @@ public class LinkedTest
         {
             String item = ("" + i);
             LQueue.add(item);
+            System.out.println("Added " + item + " to the Queue");
         }
     }
 
