@@ -12,8 +12,14 @@ public class LinkedQueue implements Queue
      * @param s A string item to be added to the Queue
      */
 
-    public void add(String s) // The add fuc
+    public void add(String s) // The add method is functionally the same as a tail linked list method (refer to lecture 8)
     {
+        /*
+         * Now I hear your silly little voice saying, well why are we adding from the tail to begin with?
+         * Remember how we defined a Queue? It is an ADT that has the first item in be the first item that comes out of it.
+         *
+         */
+
         if (tail == null)
         {
             tail = new Node(s, null);
@@ -83,7 +89,7 @@ public class LinkedQueue implements Queue
      * @return the amount of elements within a Queue
      */
 
-    public int size() //funny that this is the only method that is O(1)
+    public int size() //funny that this is the only method that is O(n)
     {
         if (isEmpty())
         {
@@ -113,6 +119,6 @@ public class LinkedQueue implements Queue
 
     public boolean isEmpty()
     {
-        return tail == null;
+        return tail == null; // returning a conditional will result in returning a boolean depending on the condition being true or false.
     }
 }
