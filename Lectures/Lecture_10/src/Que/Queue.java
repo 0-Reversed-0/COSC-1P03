@@ -1,12 +1,16 @@
+/**
+ * This lecture goes over Queues and how to implement them using arrays and with linked lists
+ */
+
 package Que;
 
 /**
  * A Queue is another type of ADT similar to a Stack
  * Queues store values in a FIFO fashion
  * FIFO stands for first in, first out meaning it is the opposite storing style to a stack.
- * The first item added will the first to move out (think of a line to a roller coaster first person to arrive is the first to get on the ride)
- * The Big(O) complexity of a Queue is O(1) depending on how it's implemented
- * This Queue holds a string
+ * The first item added will the first to move out (think of a line to a roller coaster line first person to arrive is the first to get on the ride)
+ * The Big(O) complexity of a Queue is O(1)
+ * This Queue holds a string (note this for the Generics lecture)
  */
 
 public interface Queue
@@ -15,10 +19,10 @@ public interface Queue
     /**
      * Adds a value to the Queue
      *
-     * @param s A string item to be added to the Queue
+     * @param item A string item to be added to the Queue
      */
 
-    void add(String s);
+    void add(String item);
 
     /**
      * This will remove an item from the Queue.
@@ -42,6 +46,7 @@ public interface Queue
     /**
      * The size method is for getting how many elements are in the Queue
      * Although this method goes against the philosophical idea of an ADT since it should be abstracted
+     * We add it anyway due to it being a very common method to add in a Queue otherwise do not add it
      *
      * @return the amount of elements within a Queue
      */

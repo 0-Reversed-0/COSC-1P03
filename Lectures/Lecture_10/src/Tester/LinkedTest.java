@@ -1,6 +1,10 @@
 package Tester;
 import Que.LinkedQueue;
 
+/**
+ * Just a tester to show that the methods works feel free to mess around with this
+ */
+
 public class LinkedTest
 {
 

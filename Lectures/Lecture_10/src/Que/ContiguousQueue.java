@@ -19,14 +19,14 @@ public class ContiguousQueue implements Queue
     /**
      * Adds the specified memeber to the end of the queue
      *
-     * @param s a new string
+     * @param item a new string
      * @throws QueueFullException
      */
     
-    public void add(String s)
+    public void add(String item)
     {
         /*
-         * Check if there's space
+         * Check if there'item space
          * put into the array
          * use our handy dandy formula to make sure the array does not go out of bounds
          */
@@ -38,7 +38,7 @@ public class ContiguousQueue implements Queue
 
         count++;
 
-        arr[tail] = s; //puts it in the array
+        arr[tail] = item; //puts it in the array
 
         tail = (tail+1) % arr.length; //todo explain this line
     }
