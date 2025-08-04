@@ -6,14 +6,9 @@ public class ContiguousQueue implements Queue
     private int front, tail, count;
     String[] arr;
 
-    public ContiguousQueue()
-    {
-        this(100);
-    }
-
     public ContiguousQueue(int capacity)
     {
-        arr = new String[100];
+        arr = new String[capacity];
     }
 
     /**
@@ -25,13 +20,7 @@ public class ContiguousQueue implements Queue
     
     public void add(String item)
     {
-        /*
-         * Check if there'item space
-         * put into the array
-         * use our handy dandy formula to make sure the array does not go out of bounds
-         */
-
-        if(count >= arr.length) //checks for space
+        if(count >= arr.length)
         {
             throw new QueueFullException();
         }
@@ -52,12 +41,6 @@ public class ContiguousQueue implements Queue
     
     public String remove()
     {
-        /*
-         * Check if its empty
-         * remove the item
-         * null out the space where the item was
-         */
-
         if (count < 1)
         {
             throw new QueueEmptyException();
@@ -103,6 +86,6 @@ public class ContiguousQueue implements Queue
 
     public boolean isEmpty()
     {
-        return false;
+        return count == 0;
     }
 }

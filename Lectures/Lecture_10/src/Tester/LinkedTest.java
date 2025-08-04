@@ -1,5 +1,5 @@
 package Tester;
-import Que.LinkedQueue;
+import Que.*;
 
 /**
  * Just a tester to show that the methods works feel free to mess around with this
@@ -8,7 +8,7 @@ import Que.LinkedQueue;
 public class LinkedTest
 {
 
-    LinkedQueue LQueue = new LinkedQueue();
+    Queue LQueue = new LinkedQueue();
 
     LinkedTest()
     {
