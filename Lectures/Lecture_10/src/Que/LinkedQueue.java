@@ -50,6 +50,7 @@ public class LinkedQueue implements Queue
      * The newest items will be added and removed only when they become the oldest item.
      *
      * @return the oldest item.
+     * @throws QueueEmptyException if the queue as no more items.
      */
 
     public String remove()

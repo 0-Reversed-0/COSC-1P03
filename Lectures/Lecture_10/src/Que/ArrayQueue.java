@@ -1,28 +1,37 @@
-/**
- * This lecture goes over Queues and how to implement them using arrays and with linked lists
- */
-
 package Que;
 
-/**
- * A Queue is another type of ADT similar to a Stack
- * Queues store values in a FIFO fashion
- * FIFO stands for first in, first out meaning it is the opposite storing style to a stack.
- * The first item added will the first to move out (think of a line to a roller coaster line first person to arrive is the first to get on the ride)
- * The Big(O) complexity of a Queue is O(1)
- * This Queue holds a string (note this for the Generics lecture)
- */
-
-public interface Queue
+public class ArrayQueue implements Queue
 {
+
+    private String[] array;
+    private int index = -1;
+    private int tail;
+
+    public ArrayQueue(int capacity)
+    {
+        array = new String[capacity];
+    }
 
     /**
      * Adds a value to the Queue
      *
      * @param item A string item to be added to the Queue
+     * @throws QueueFullException will be thrown if the queue is full since this is a
      */
 
-    void add(String item);
+    public void add(String item)
+    {
+        if (isFull())
+        {
+            throw new QueueFullException();
+        } else if (isEmpty())
+        {
+            tail = index + 1;
+        }
+
+        index = (index + 1) % array.length;
+        array[index] = item;
+    }
 
     /**
      * This will remove an item from the Queue.
@@ -32,8 +41,20 @@ public interface Queue
      * @return the oldest item.
      * @throws QueueEmptyException if the queue as no more items.
      */
-    
-    String remove();
+
+    public String remove()
+    {
+        if (isEmpty())
+        {
+            throw new QueueEmptyException();
+        }
+
+        String item = array[tail];
+        array[tail] = null;
+        tail++;
+
+        return item;
+    }
 
     /**
      * Shows the next item that will be removed before it will be removed via the remove() method
@@ -42,7 +63,15 @@ public interface Queue
      * @throws QueueEmptyException if the Queue had nothing inside it to begin with then this will be thrown
      */
 
-    String front();
+    public String front()
+    {
+        if (isEmpty())
+        {
+            throw new QueueEmptyException();
+        }
+
+        return array[tail];
+    }
 
     /**
      * The size method is for getting how many elements are in the Queue
@@ -52,7 +81,10 @@ public interface Queue
      * @return the amount of elements within a Queue
      */
 
-    int size();
+    public int size()
+    {
+        return Math.abs(index-tail);
+    }
 
     /**
      * The isEmpty method checks for if the Queue is empty (useful for emptying out the full Queue)
@@ -60,7 +92,13 @@ public interface Queue
      * @return a boolean Empty -> true | Full -> false.
      */
 
-    boolean isEmpty();
+    public boolean isEmpty()
+    {
+        return tail == index;
+    }
+
+    public boolean isFull()
+    {
+        return index == array.length - 1 & tail == 0;
+    }
 }
-
-
