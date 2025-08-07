@@ -5,7 +5,7 @@ import Que.*;
 /**
  * A simple tester to show that the Array Queue works!
  * Notice how it is implemented word for word as the LinkedTest?
- * This is because I am lazy and also because it shows how it works exactly as a Queue is supposed to work regardless of the implementation (How ADTs work)
+ * This is because I am lazy and also because it shows how it works exactly as a Queue is supposed to work regardless of the implementation (How ADTs should be handled)
  */
 
 public class ArrayTest

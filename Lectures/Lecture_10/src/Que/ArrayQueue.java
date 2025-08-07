@@ -28,7 +28,7 @@ public class ArrayQueue implements Queue
     {
         if (isFull())
         {
-            throw new QueueFullException();
+            throw new QueueFullException("Cannot add more items :(");
         } else if (isEmpty())
         {
             tail = (index + 1) % array.length;
@@ -53,7 +53,7 @@ public class ArrayQueue implements Queue
     {
         if (isEmpty())
         {
-            throw new QueueEmptyException();
+            throw new QueueEmptyException("No more items left to remove :(");
         }
 
         String item = array[tail];
@@ -76,7 +76,7 @@ public class ArrayQueue implements Queue
     {
         if (isEmpty())
         {
-            throw new QueueEmptyException();
+            throw new QueueEmptyException("No items at the front of the Queue");
         }
 
         return array[tail];

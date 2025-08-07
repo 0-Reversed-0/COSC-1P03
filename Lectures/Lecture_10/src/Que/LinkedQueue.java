@@ -57,7 +57,7 @@ public class LinkedQueue implements Queue
     {
         if (isEmpty()) // we first want to check if the linked list is empty
         {
-            throw new QueueEmptyException();
+            throw new QueueEmptyException("No more items left to remove :(");
         } else if (head == tail | head == null) // then we check if the tail is the only node left through checking if the head is null/pointing to the tail (if its either of those 2 then we have already removed to the last node)
         {
             String item = tail.item;
@@ -85,7 +85,7 @@ public class LinkedQueue implements Queue
     {
         if (isEmpty())
         {
-            throw new QueueEmptyException();
+            throw new QueueEmptyException("No Items at the front of the Queue");
         } else if (head == tail | head == null)
         {
             return tail.item;
