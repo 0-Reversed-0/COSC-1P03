@@ -1,16 +1,25 @@
 package Que;
 
 /**
- * This is the implementation of a Queue in
+ * This is the implementation of a Queue using arrays instead of linked lists
+ * Reminder: DO NOT IMPLEMENT QUEUES OR ADTS USING ARRAYS SINCE IT'S A LIVING HELL JUST USE LINKED LISTS
+ * That aside, it requires a little more thinking and a better understanding of FIFO to implement so if you want to practice then you can try it
+ * They are also referred to as Contiguous Queues
  */
 
 public class ArrayQueue implements Queue
 {
 
     private String[] array;
-    private int index;
-    private int tail;
-    private int size;
+    private int index; // The index is mainly used for adding (sorta like the head in the linked list implementation)
+    private int head;  // The head is the oldest item in the Queue
+    private int size;  // We need a counter to keep track of how many items are in the Queue since we index circular (more on that soon!)
+
+    /**
+     * Surprise! We have a constructor this time because it is an array based Queue
+     *
+     * @param capacity the amount of items one instance of a Queue can hold
+     */
 
     public ArrayQueue(int capacity)
     {
@@ -26,13 +35,17 @@ public class ArrayQueue implements Queue
 
     public void add(String item)
     {
-        if (isFull())
+        if (isFull()) // Since it's an array, this is now a factor we have to check and address accordingly
         {
             throw new QueueFullException("Cannot add more items :(");
         } else if (isEmpty())
         {
-            tail = (index + 1) % array.length;
+            head = (index + 1) % array.length;
         }
+
+        /*
+         * To explain how
+         */
 
         index = (index + 1) % (array.length);
         array[index] = item;
@@ -56,10 +69,10 @@ public class ArrayQueue implements Queue
             throw new QueueEmptyException("No more items left to remove :(");
         }
 
-        String item = array[tail];
-        array[tail] = "";
+        String item = array[head];
+        array[head] = "";
 
-        tail = (tail + 1) % array.length;
+        head = (head + 1) % array.length;
 
         size--;
         return item;
@@ -79,7 +92,7 @@ public class ArrayQueue implements Queue
             throw new QueueEmptyException("No items at the front of the Queue");
         }
 
-        return array[tail];
+        return array[head];
     }
 
     /**
