@@ -11,6 +11,7 @@ package Que;
  * The first item added will the first to move out (think of a line to a roller coaster line first person to arrive is the first to get on the ride)
  * The Big(O) complexity of a Queue is O(1)
  * This Queue holds a string (note this for the Generics lecture)
+ * Read the classes in order of first this interface, then the linked queue, and finally the array queue
  */
 
 public interface Queue
