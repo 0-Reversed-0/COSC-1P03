@@ -1,11 +1,16 @@
 package Que;
 
+/**
+ * This is the implementation of a Queue in
+ */
+
 public class ArrayQueue implements Queue
 {
 
     private String[] array;
-    private int index = -1;
+    private int index;
     private int tail;
+    private int size;
 
     public ArrayQueue(int capacity)
     {
@@ -26,11 +31,13 @@ public class ArrayQueue implements Queue
             throw new QueueFullException();
         } else if (isEmpty())
         {
-            tail = index + 1;
+            tail = (index + 1) % array.length;
         }
 
-        index = (index + 1) % array.length;
+        index = (index + 1) % (array.length);
         array[index] = item;
+
+        size++;
     }
 
     /**
@@ -50,9 +57,11 @@ public class ArrayQueue implements Queue
         }
 
         String item = array[tail];
-        array[tail] = null;
-        tail++;
+        array[tail] = "";
 
+        tail = (tail + 1) % array.length;
+
+        size--;
         return item;
     }
 
@@ -83,22 +92,28 @@ public class ArrayQueue implements Queue
 
     public int size()
     {
-        return Math.abs(index-tail);
+        return size;
     }
 
     /**
      * The isEmpty method checks for if the Queue is empty (useful for emptying out the full Queue)
      *
-     * @return a boolean Empty -> true | Full -> false.
+     * @return a boolean where Empty -> true | Full -> false.
      */
 
     public boolean isEmpty()
     {
-        return tail == index;
+        return size == 0;
     }
 
-    public boolean isFull()
+    /**
+     * A private boolean method to check if the Queue is full since its Array based
+     *
+     * @return a boolean where Empty -> false | Full -> true.
+     */
+
+    private boolean isFull()
     {
-        return index == array.length - 1 & tail == 0;
+        return size == array.length;
     }
 }

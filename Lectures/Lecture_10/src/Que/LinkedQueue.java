@@ -110,7 +110,7 @@ public class LinkedQueue implements Queue
     /**
      * The isEmpty method checks for if the Queue is empty (useful for emptying out the full Queue)
      *
-     * @return a boolean Empty -> true | Full -> false.
+     * @return a boolean where Empty -> true | Full -> false.
      */
 
     public boolean isEmpty()

@@ -1,21 +1,24 @@
 package Tester;
+
 import Que.*;
 
 /**
- * Just a tester to show that the methods works feel free to mess around with this
+ * A simple tester to show that the Array Queue works!
+ * Notice how it is implemented word for word as the LinkedTest?
+ * This is because I am lazy and also because it shows how it works exactly as a Queue is supposed to work regardless of the implementation (How ADTs work)
  */
 
-public class LinkedTest
+public class ArrayTest
 {
 
-    Queue LQueue = new LinkedQueue();
+    Queue AQueue = new ArrayQueue(10);
 
-    LinkedTest()
+    public ArrayTest()
     {
         fill(); // First we want to show if we can fill the Queue up!
 
-        System.out.println("\tThe amount of items in the Queue currently is: " + LQueue.size()); // then just for demonstration we show the size and the top/front of the Queue
-        System.out.println("\tThe item at the front of the Queue is: " + LQueue.front());
+        System.out.println("\tThe amount of items in the Queue currently is: " + AQueue.size()); // then just for demonstration we show the size and the top/front of the Queue
+        System.out.println("\tThe item at the front of the Queue is: " + AQueue.front());
 
         emptyOut(); // finally we empty it out just to show that it works
     }
@@ -28,9 +31,9 @@ public class LinkedTest
     {
         System.out.println();
 
-        while (!LQueue.isEmpty())
+        while (!AQueue.isEmpty())
         {
-            System.out.println("Removed " + LQueue.remove() + " from the Queue");
+            System.out.println("Removed " + AQueue.remove() + " from the Queue");
         }
 
         System.out.println();
@@ -47,7 +50,7 @@ public class LinkedTest
         for (int i = 0; i < 10; i++)
         {
             String item = ("" + i);
-            LQueue.add(item);
+            AQueue.add(item);
             System.out.println("Added " + item + " to the Queue");
         }
 
@@ -56,6 +59,6 @@ public class LinkedTest
 
     public static void main(String[] args)
     {
-        new LinkedTest();
+        new ArrayTest();
     }
 }
