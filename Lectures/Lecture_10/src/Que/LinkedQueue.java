@@ -86,7 +86,7 @@ public class LinkedQueue implements Queue
         if (isEmpty())
         {
             throw new QueueEmptyException("No Items at the front of the Queue");
-        } else if (head == tail | head == null)
+        } else if (head == tail | head == null) // if the tail is the only node in the list then return what's in tail instead
         {
             return tail.item;
         }
