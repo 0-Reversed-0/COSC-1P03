@@ -29,9 +29,9 @@ public class Main
             return;
         }
 
-        System.out.println(n);
-
         num(n-1);
+
+        System.out.println(n);
     }
 
     public static void main(String[] args)
