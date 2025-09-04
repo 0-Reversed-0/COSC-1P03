@@ -13,9 +13,8 @@ public class BasicGenericTester
 
     public BasicGenericTester()
     {
-        box = new Generics<Integer, String>(); // You might wonder why I used Integer instead of 'int' and that's because the Generic classes only accept Objects.
-
-        set(19, "M");
+        box = new Generics<Integer, String>(); // You might wonder why I used Integer instead of 'int' and that's because the Generic classes ONLY accept objects
+        set(19, "I'm not a number");
         get();
     }
 

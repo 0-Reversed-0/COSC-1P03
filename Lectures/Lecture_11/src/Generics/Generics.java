@@ -5,10 +5,11 @@ package Generics;
  * Think of it like a method with its parameters
  * But instead of normal parameters, these parameters decide the type of objects within our class
  * This means that instead of having a class only have a static type for each instance variable it can be interchangeable
+ * This specific class will show how a basic generic would look like.
  */
 
 // This is an example of a parameterized class
-public class Generics <Item_A, Item_B> // All you have to do is add a <> and a label for what the type you will be using
+public class Generics <Item_A, Item_B> // All you have to do is add a <> and a label for what the type you will be using. The <Item_A, Item_B> is examples of type parameters
 {
     /*
      * This class will only be a wrapper class (a class that can hold one or more primitive types and represents them as an object [Ex: Integer Class])
