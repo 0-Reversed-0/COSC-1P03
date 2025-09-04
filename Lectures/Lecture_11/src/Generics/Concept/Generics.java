@@ -1,10 +1,11 @@
-package Generics;
+package Generics.Concept;
 
 /**
- * Generics are another word for a parametrized class
- * Think of it like a method with its parameters
- * But instead of normal parameters, these parameters decide the type of objects within our class
- * This means that instead of having a class only have a static type for each instance variable it can be interchangeable
+ * Generics are another word for a parametrized class.
+ * Think of it like a method with its parameters.
+ * But instead of normal parameters, these parameters decide the type of objects within our class.
+ * This means that instead of having a class only have a static type for each instance variable it can be interchangeable.
+ * For example, instead of node only holding just an int it can now hold what the user chooses to put into the node class.
  * This specific class will show how a basic generic would look like.
  */
 

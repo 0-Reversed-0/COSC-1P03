@@ -1,4 +1,4 @@
-package Generic;
+package Generics.Application;
 
 public class StackEmpty extends RuntimeException
 {

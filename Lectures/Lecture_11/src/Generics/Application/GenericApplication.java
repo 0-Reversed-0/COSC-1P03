@@ -1,4 +1,4 @@
-package Generics;
+package Generics.Application;
 
 /**
  * If the name was not obvious than this class goes over how and why would use a generic class over a normal class
@@ -35,6 +35,7 @@ public interface GenericApplication<E> // I chose the letter E for a reason sinc
      * removes an item and gives us what the item is
      *
      * @return the item
+     * @throws StackEmpty if the stack is empty
      */
 
     E pop();
@@ -43,6 +44,7 @@ public interface GenericApplication<E> // I chose the letter E for a reason sinc
      * shows us what item is going to be removed
      *
      * @return the item that will remove
+     * @throws StackEmpty if the stack is empty
      */
 
     E top();

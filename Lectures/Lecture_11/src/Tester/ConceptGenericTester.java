@@ -1,17 +1,17 @@
 package Tester;
 
-import Generics.*;
+import Generics.Concept.Generics;
 
 /**
  * This tester is for showing the basic abilities of a parameterized classes and wrapper classes
  */
 
-public class BasicGenericTester
+public class ConceptGenericTester
 {
 
     Generics<Integer, String> box; // See how we put 'Integer' and String in the <> parameters? This is how you would set a type of object in a Generic Class.
 
-    public BasicGenericTester()
+    public ConceptGenericTester()
     {
         box = new Generics<Integer, String>(); // You might wonder why I used Integer instead of 'int' and that's because the Generic classes ONLY accept objects
         set(19, "I'm not a number");
@@ -55,6 +55,6 @@ public class BasicGenericTester
 
     public static void main(String[] args)
     {
-        new BasicGenericTester();
+        new ConceptGenericTester();
     }
 }
