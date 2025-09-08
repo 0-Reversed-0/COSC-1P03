@@ -2,7 +2,7 @@
  * This lecture is the intro to sorting.
  */
 
-public class Main
+public class Sorting
 {
 
     /**
@@ -11,7 +11,7 @@ public class Main
      * If it does NOT use any more RAM than needed then it is in situ (in place)
      */
 
-    public Main()
+    public Sorting()
     {
         Selection_Sort();
     }
@@ -35,6 +35,6 @@ public class Main
 
     public static void main(String[] args)
     {
-        new Main();
+        new Sorting();
     }
 }
