@@ -1,4 +1,4 @@
-COSC 1P03 - Introduction to data structures at Brock University.
-This repository contains all labs, assignments, and lecture code that was covered in this entire course.
-V2 is a label given to the Spring term version of this course (This is only applied to Assignments)!
-Hopefully anyone who comes by this finds it helpful.
+This is a repository includes all the university course work done in COSC 1P03, Data Structures, labs, assignments, and lecture notes taken in class and added on later.
+This course goes into moderate detail of data structures like linked lists, arrays, stacks, and queues while also introducing ADTs, sorting, recursion, searching, and software design.
+This repository's assignments have some labelled as V2 for the spring term assignments and the unlabelled assignments were for the winter term. It also uses the Brock.jar Package
+I made this repository to hopefully help anyone who comes by it and to prove I took this coruse!
