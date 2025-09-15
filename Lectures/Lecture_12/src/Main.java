@@ -29,7 +29,7 @@ public class Main
             return;
         }
 
-        num(n-1); // the placement of where we put num matters
+        num(n-1);
 
         System.out.println(n);
     }
