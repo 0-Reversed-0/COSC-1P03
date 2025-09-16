@@ -1,6 +1,6 @@
 package No_Numbers;
 
-public class Node
+class Node
 {
     int item;
     Node next;
