@@ -5,7 +5,7 @@ public class Lab_6
 
     Turtle T;
     TurtleDisplayer D;
-    boolean[][] visited = new boolean[30][30];
+    boolean[][] visited = new boolean[30][30]; 
 
     public Lab_6()
     {
