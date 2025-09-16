@@ -130,20 +130,13 @@ public class ArrayStack implements Stack
 
     public boolean isEmpty()
     {
-        boolean empty = false;
-
         /*
          * For us our very last index will be 0 so whenever the index is 0 it is empty and can no longer be popped
          * This works in emptying out the entire stack because once popping the last value the index would be 1
          * This because we made it so that the uppermost value will always have an index above the current index
          */
 
-        if (index == 0)
-        {
-            empty = true;
-        }
-
-        return empty;
+        return index == 0;
     }
 
     /**
@@ -154,13 +147,8 @@ public class ArrayStack implements Stack
 
     public boolean isFull()
     {
-        boolean full = false;
+        // same thing with popping where you can until the last index which would above the last index by 1
 
-        if (index == array.length) // same thing with popping where you can until the last index which would above the last index by 1
-        {
-            full = true;
-        }
-
-        return full;
+        return index == array.length;
     }
 }
