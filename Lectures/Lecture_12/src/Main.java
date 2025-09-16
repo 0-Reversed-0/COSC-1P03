@@ -29,7 +29,7 @@ public class Main
             return;
         }
 
-        num(n-1);
+        num(n-1); // Where this is placed can show how the callstack works
 
         System.out.println(n);
     }
