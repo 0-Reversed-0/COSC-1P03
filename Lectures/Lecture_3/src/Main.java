@@ -1,5 +1,5 @@
 /**
- * This lecture goes further into how things like 2D arrays and ragged arrays work.
+ * This lecture goes into how things like 2D arrays and ragged arrays work.
  */
 
 public class Main
@@ -7,15 +7,21 @@ public class Main
 
     public Main()
     {
-        Array();
+        twoDimensionalArrays();
         raggedArrays();
     }
 
-    void Array()
+    /**
+     * 2D arrays is essentially an array that is made up of arrays
+     * Basically...
+     * Array arraySet = {int[] arr1, int[] arr2, int[] arr3};
+     * Each row is their own different array and each element accessed is row's array
+     * Example using arraySet: arr1 = {2, 3, 4}; intArray = arraySet[0]; print(intArray[2]); output: 4.
+     */
+
+    void twoDimensionalArrays()
     {
         // ArrayIndexOutOfBoundsException is when the index inputted by user is not within the bounds of the array. I.E. int[] arr = new int[10]; arr[200];
-
-        // Double Arrays / 2D Arrays are basically an Array of an Array formed by having 2 [] rather than 1.
 
         int[][] arr = new int[2][2]; // a 2x2 matrix/array example
 
@@ -26,7 +32,7 @@ public class Main
     }
 
     /**
-     * Example of filling out array
+     * Example of filling out a 2D array
      */
 
     int[][] generate(int height, int width)
@@ -35,7 +41,7 @@ public class Main
 
         int count = 1;
 
-        for (int row = 0; row < arr.length; row++) // don't use height and width as the bounds for the loop instead use arr.length
+        for (int row = 0; row < arr.length; row++) // first we would want to row by row
         {
             for (int col = 0; col < arr[0].length; col++) // arr[0].length is the length of specifically the first arrays length
             {
@@ -51,7 +57,7 @@ public class Main
      * Also an example of traversal
      */
 
-    void showMatrix(int[][] arr)
+    void showMatrix(int[][] arr) // A 2D array can also be referred to as a matrix
     {
         for(int[] row : arr) // take the row of the collection: arr
         { // just don't do this it's so stupid
