@@ -16,7 +16,7 @@ public class ArrayQueue implements Queue
     private int size;  // We need a counter to keep track of how many items are in the Queue since we index circular (more on that soon!)
 
     /**
-     * We have a constructor this time because it is an array based Queue
+     * Surprise! We have a constructor this time because it is an array based Queue
      *
      * @param capacity the amount of items one instance of a Queue can hold
      */

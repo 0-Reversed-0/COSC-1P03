@@ -1,8 +1,9 @@
+package Que;
+
 /**
  * This lecture goes over Queues and how to implement them using arrays and with linked lists
  */
 
-package Que;
 
 /**
  * A Queue is another type of ADT similar to a Stack
