@@ -1,5 +1,5 @@
 /**
- * This lecture goes over Classes and introduces the problem with storing values (Introduction to Arrays)
+ * This lecture goes over Classes and introduces the problem with storing values
  */
 
 public class Main
