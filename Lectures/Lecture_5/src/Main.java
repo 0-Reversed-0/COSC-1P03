@@ -1,5 +1,6 @@
 /**
  * This lecture introduces the problem we need to solve using ADTs without going into ADTs yet
+ * Basically, Ignore this lecture go to Lecture 6,
  */
 
 import Measurement.Measurement; //This is the whole reason we separate things into packages so we can import them into things like testers.
