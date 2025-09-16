@@ -1,9 +1,9 @@
 package Generics.Application;
 
-public class Node <E>
+class Node <E>
 {
     E item;
-    Node<E> next; // Remember anytime you call upon the class name you MUST add the <> no matter waht
+    Node<E> next; // Remember anytime you call upon the class name you MUST add the <Object> no matter what, just like a method call
 
     Node(E i, Node<E> n)
     {
