@@ -1,4 +1,4 @@
-package L5;
+package ADTs;
 
 /**
  * This class represents a single numerical measurement that may include annotations

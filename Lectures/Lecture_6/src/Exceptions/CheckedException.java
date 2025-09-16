@@ -1,4 +1,4 @@
-package L5;
+package Exceptions;
 
 /**
  * This is an example of a CHECKED Exception
@@ -8,10 +8,10 @@ package L5;
  * It is caught in the compiler rather than the runtime of a program
  */
 
-public class InvalidAge extends Exception
+public class CheckedException extends Exception
 {
 
-    public InvalidAge(String message)
+    public CheckedException(String message)
     {
         super(message);
     }

@@ -1,15 +1,16 @@
 /**
  * This Lecture goes into lengthy detail on what Interfaces are,
- * How Interfaces are implemented,
- * and Exception Handling.
+ * How Interfaces are implemented and Exception Handling.
  */
 
-import L5.*;
+import Exceptions.CheckedException;
+import Exceptions.UncheckedException;
+import ADTs.*;
 
 public class Main
 {
 
-    UnorderedPool Pool = new UnorderedPool(5);
+    InterfaceImplementation Pool = new InterfaceImplementation(5);
 
     public Main()
     {
@@ -19,7 +20,7 @@ public class Main
         {
             throwExample(-1); // This call of this method physically will not work unless handled with a try catch block
         }
-        catch(InvalidAge e)
+        catch(CheckedException e)
         {
             System.out.println(e.getMessage()); // We can also
         }
@@ -35,8 +36,8 @@ public class Main
         try //try catch is basically where you have a block of code you want to see if it works
         {
             //This is the code we want to "try" out
-            UnorderedPool p = new UnorderedPool(-20); // we cannot -20 as a valid capacity obviously so this will throw a StopTrollingException
-        } catch (StopTrollingException e) // here it catches any exception that it comes by
+            InterfaceImplementation p = new InterfaceImplementation(-20); // we cannot -20 as a valid capacity obviously so this will throw a StopTrollingException
+        } catch (UncheckedException e) // here it catches any exception that it comes by
         {
             System.out.println("why dude"); // gives us a message instead of crashing out code
         }
@@ -48,7 +49,7 @@ public class Main
      * @param age - for testing purposes to see if someone wants to troll and put a negative number as an age
      */
 
-    int throwExample(int age) throws InvalidAge
+    int throwExample(int age) throws CheckedException
     {
         /*
          * Throw works by wanting our code to work in one specific way
@@ -62,7 +63,7 @@ public class Main
             return Age;
         } else
         {
-            throw new InvalidAge("Age cannot be negative");
+            throw new CheckedException("Age cannot be negative");
         }
     }
 
@@ -72,7 +73,7 @@ public class Main
 
     void poolTest()
     {
-        UnorderedPool pool = new UnorderedPool(3);
+        InterfaceImplementation pool = new InterfaceImplementation(3);
 
         pool.add(new Measurement("Big Bird", 20.4, "XL"));
         pool.add(new Measurement("Small Bird", 12.2, "XS"));

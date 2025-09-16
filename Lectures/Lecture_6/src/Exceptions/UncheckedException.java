@@ -1,4 +1,4 @@
-package L5;
+package Exceptions;
 
 /**
  * Runtime exception is basically an unchecked exception
@@ -10,7 +10,7 @@ package L5;
  * (Example: ArrayIndexOutOfBoundsException: It will crash the program only when the index goes overboard and will never been seen by the compiler)
  */
 
-public class StopTrollingException extends RuntimeException //basically says that a Stop Trolling class is a Runtime(uncheck) exception that will crash the program if ever ran into
+public class UncheckedException extends RuntimeException //basically says that a Stop Trolling class is a Runtime(uncheck) exception that will crash the program if ever ran into
 {
 
     /*
@@ -20,12 +20,12 @@ public class StopTrollingException extends RuntimeException //basically says tha
      * For example: If a user puts an invalid age then java would not say anything about it, but it would mess up our program so we would throw our custom InvalidAge exception
      */
 
-    public StopTrollingException(String message)
+    public UncheckedException(String message)
     {
         super(message); // If the user so please to and wants to send a message using their exception then they can by just putting it in the instance's parameters
     }
 
-    public StopTrollingException()
+    public UncheckedException()
     {
         // If the user decides not to use any message that is also possible.
         // Messages are useful to pinpoint which method's exception was triggered

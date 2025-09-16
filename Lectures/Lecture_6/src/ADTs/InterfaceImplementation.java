@@ -1,4 +1,6 @@
-package L5;
+package ADTs;
+
+import Exceptions.UncheckedException;
 
 /**
  * This class stores readings in an arbitrary order
@@ -6,13 +8,13 @@ package L5;
  * This class in specific is what we would call an ADT because it is defined by an ADT
  */
 
-public class UnorderedPool implements Pool // this is how we implement an interface via using the keyword implements: public class Name implements interfaceName
+public class InterfaceImplementation implements Interface // this is how we implement an interface via using the keyword implements: public class Name implements interfaceName
 {
 
     private Measurement[] arr;
     private int count; // iterating value
 
-    public UnorderedPool(int capacity)
+    public InterfaceImplementation(int capacity)
     {
         if(capacity > 1)
         {
@@ -20,11 +22,11 @@ public class UnorderedPool implements Pool // this is how we implement an interf
             count = 0;
         }
         else {
-            throw new StopTrollingException("There has to be more than 1 Measurements in the Pool"); // we do not want negative array capacities obviously
+            throw new UncheckedException("There has to be more than 1 Measurements in the Pool"); // we do not want negative array capacities obviously
         }
     }
 
-    public UnorderedPool()
+    public InterfaceImplementation()
     {
         this(100); // in case our user does not want to have a specific amount yet
     }
@@ -36,7 +38,7 @@ public class UnorderedPool implements Pool // this is how we implement an interf
             arr[count++] = M; //if a user decides to add a measurement,
             // then it will add their measurement and go to the next value in the array
         }else {
-            throw new StopTrollingException("Pool is Full");
+            throw new UncheckedException("Pool is Full");
         }
     }
 
@@ -81,7 +83,7 @@ public class UnorderedPool implements Pool // this is how we implement an interf
 
     public Measurement[] above(Measurement reference)
     {
-        throw new UnsupportedOperationException(); // We can even use this exception on return type method
+        throw new UnsupportedOperationException(); // We can use all exceptions as a return as well
     }
 
     public Measurement[] below(Measurement reference)
